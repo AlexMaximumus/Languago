@@ -1,0 +1,19 @@
+{
+    "words": [
+        {
+            "kanji": "私",
+            "furigana": "わたし",
+            "romaji": "watashi",
+            "translation": "Я",
+            "category": "местоимения"
+        },
+        {
+            "kanji": "今日",
+            "furigana": "きょう",
+            "romaji": "kyou",
+            "translation": "Сегодня",
+            "category": "время"
+        },
+        // ... много слов ...
+    ]
+}
