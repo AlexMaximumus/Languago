@@ -6,91 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            color: var(--tg-theme-text-color);
-            background: var(--tg-theme-bg-color);
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .header h1 {
-            font-size: 2.5em;
-            color: #e74c3c;
-            margin-bottom: 10px;
-        }
-        .card {
-            perspective: 1000px;
-            height: 200px;
-            margin: 20px 0;
-            cursor: pointer;
-        }
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .card.flipped .card-inner {
-            transform: rotateY(180deg);
-        }
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            border-radius: 15px;
-            background: var(--tg-theme-secondary-bg-color, #f8f9fa);
-        }
-        .card-back {
-            transform: rotateY(180deg);
-            background: var(--tg-theme-secondary-bg-color, #f8f9fa);
-        }
+        /* ... предыдущие стили ... */
+        
         .japanese {
             font-size: 32px;
             font-weight: bold;
             color: #e74c3c;
-        }
-        .controls {
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            flex-direction: column;
+            align-items: center;
         }
-        .button {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
+        
+        .furigana {
             font-size: 16px;
-            transition: background 0.3s;
+            color: #95a5a6;
+            margin-bottom: 5px;
         }
-        .button:hover {
-            background: #c0392b;
+
+        .card-back {
+            transform: rotateY(180deg);
+            background: var(--tg-theme-secondary-bg-color, #f8f9fa);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        .progress {
-            text-align: center;
-            margin-top: 20px;
-            color: var(--tg-theme-hint-color);
+
+        .romaji {
+            font-size: 20px;
+            color: #7f8c8d;
+        }
+
+        .translation {
+            font-size: 24px;
+            color: #2c3e50;
         }
     </style>
 </head>
@@ -104,10 +52,14 @@
         <div class="card" onclick="flipCard(this)">
             <div class="card-inner">
                 <div class="card-front">
-                    <span class="japanese">こんにちは</span>
+                    <div class="japanese">
+                        <span class="furigana">わたし</span>
+                        <span class="kanji">私</span>
+                    </div>
                 </div>
                 <div class="card-back">
-                    <span>Здравствуйте</span>
+                    <span class="romaji">watashi</span>
+                    <span class="translation">Я</span>
                 </div>
             </div>
         </div>
@@ -128,11 +80,36 @@
 
         // Массив с карточками
         const cards = [
-            { japanese: 'こんにちは', russian: 'Здравствуйте' },
-            { japanese: 'ありがとう', russian: 'Спасибо' },
-            { japanese: 'さようなら', russian: 'До свидания' },
-            { japanese: '私', russian: 'Я' },
-            { japanese: '猫', russian: 'Кошка' }
+            { 
+                kanji: '私',
+                furigana: 'わたし',
+                romaji: 'watashi',
+                translation: 'Я'
+            },
+            {
+                kanji: '今日',
+                furigana: 'きょう',
+                romaji: 'kyou',
+                translation: 'Сегодня'
+            },
+            {
+                kanji: '食べる',
+                furigana: 'たべる',
+                romaji: 'taberu',
+                translation: 'Есть, кушать'
+            },
+            {
+                kanji: '学校',
+                furigana: 'がっこう',
+                romaji: 'gakkou',
+                translation: 'Школа'
+            },
+            {
+                kanji: '友達',
+                furigana: 'ともだち',
+                romaji: 'tomodachi',
+                translation: 'Друг'
+            }
         ];
 
         let currentCard = 0;
@@ -143,11 +120,15 @@
 
         function updateCard() {
             const card = document.querySelector('.card');
-            const front = card.querySelector('.card-front .japanese');
-            const back = card.querySelector('.card-back span');
+            const furigana = card.querySelector('.card-front .furigana');
+            const kanji = card.querySelector('.card-front .kanji');
+            const romaji = card.querySelector('.card-back .romaji');
+            const translation = card.querySelector('.card-back .translation');
             
-            front.textContent = cards[currentCard].japanese;
-            back.textContent = cards[currentCard].russian;
+            furigana.textContent = cards[currentCard].furigana;
+            kanji.textContent = cards[currentCard].kanji;
+            romaji.textContent = cards[currentCard].romaji;
+            translation.textContent = cards[currentCard].translation;
             
             card.classList.remove('flipped');
             
