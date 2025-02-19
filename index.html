@@ -167,37 +167,19 @@
             <div class="category-card" onclick="selectCategory('nature')">
                 <div class="category-icon">🌿</div>
                 <div class="category-title">Природа</div>
-                <div class="category-count">25 слов</div>
+                <div class="category-count">3 слова</div>
             </div>
 
             <div class="category-card" onclick="selectCategory('food')">
                 <div class="category-icon">🍱</div>
                 <div class="category-title">Еда</div>
-                <div class="category-count">30 слов</div>
+                <div class="category-count">3 слова</div>
             </div>
 
             <div class="category-card" onclick="selectCategory('communication')">
                 <div class="category-icon">💬</div>
                 <div class="category-title">Общение</div>
-                <div class="category-count">40 слов</div>
-            </div>
-
-            <div class="category-card" onclick="selectCategory('transport')">
-                <div class="category-icon">🚆</div>
-                <div class="category-title">Транспорт</div>
-                <div class="category-count">20 слов</div>
-            </div>
-
-            <div class="category-card" onclick="selectCategory('emotions')">
-                <div class="category-icon">😊</div>
-                <div class="category-title">Эмоции</div>
-                <div class="category-count">15 слов</div>
-            </div>
-
-            <div class="category-card" onclick="selectCategory('time')">
-                <div class="category-icon">⏰</div>
-                <div class="category-title">Время</div>
-                <div class="category-count">35 слов</div>
+                <div class="category-count">3 слова</div>
             </div>
         </div>
 
@@ -214,49 +196,114 @@
         let currentWords = [];
         let currentWordIndex = 0;
 
-        async function loadCategoryWords(category) {
-            try {
-                const response = await fetch('words.json');
-                const data = await response.json();
-                currentCategory = category;
-                currentWords = data[category].words;
-                currentWordIndex = 0;
-                
-                // Создаем HTML для карточек
-                const container = document.getElementById('flashcards-container');
-                container.innerHTML = `
-                    <div class="card" onclick="flipCard(this)">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="furigana">${currentWords[0].furigana}</div>
-                                <div class="kanji">${currentWords[0].kanji}</div>
-                            </div>
-                            <div class="card-back">
-                                <div class="romaji">${currentWords[0].romaji}</div>
-                                <div class="translation">${currentWords[0].translation}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="controls">
-                        <button class="button" onclick="previousCard()">← Назад</button>
-                        <button class="button" onclick="nextCard()">Вперёд →</button>
-                    </div>
-                    <div class="progress">
-                        Карточка 1 из ${currentWords.length}
-                    </div>
-                `;
-            } catch (error) {
-                console.error('Ошибка загрузки слов:', error);
+        const wordsData = {
+            "nature": {
+                "title": "Природа",
+                "words": [
+                    {
+                        "kanji": "木",
+                        "furigana": "き",
+                        "romaji": "ki",
+                        "translation": "Дерево"
+                    },
+                    {
+                        "kanji": "花",
+                        "furigana": "はな",
+                        "romaji": "hana",
+                        "translation": "Цветок"
+                    },
+                    {
+                        "kanji": "山",
+                        "furigana": "やま",
+                        "romaji": "yama",
+                        "translation": "Гора"
+                    }
+                ]
+            },
+            "food": {
+                "title": "Еда",
+                "words": [
+                    {
+                        "kanji": "寿司",
+                        "furigana": "すし",
+                        "romaji": "sushi",
+                        "translation": "Суши"
+                    },
+                    {
+                        "kanji": "魚",
+                        "furigana": "さかな",
+                        "romaji": "sakana",
+                        "translation": "Рыба"
+                    },
+                    {
+                        "kanji": "米",
+                        "furigana": "こめ",
+                        "romaji": "kome",
+                        "translation": "Рис"
+                    }
+                ]
+            },
+            "communication": {
+                "title": "Общение",
+                "words": [
+                    {
+                        "kanji": "こんにちは",
+                        "furigana": "こんにちは",
+                        "romaji": "konnichiwa",
+                        "translation": "Здравствуйте"
+                    },
+                    {
+                        "kanji": "ありがとう",
+                        "furigana": "ありがとう",
+                        "romaji": "arigatou",
+                        "translation": "Спасибо"
+                    },
+                    {
+                        "kanji": "さようなら",
+                        "furigana": "さようなら",
+                        "romaji": "sayounara",
+                        "translation": "До свидания"
+                    }
+                ]
             }
-        }
+        };
 
         function selectCategory(category) {
+            currentCategory = category;
+            currentWords = wordsData[category].words;
+            currentWordIndex = 0;
+
             document.getElementById('categories-container').style.display = 'none';
             document.getElementById('flashcards-container').style.display = 'block';
             document.querySelector('.back-button').style.display = 'block';
-            document.querySelector('.header p').textContent = `Категория: ${getCategoryName(category)}`;
+            document.querySelector('.header p').textContent = `Категория: ${wordsData[category].title}`;
             
-            loadCategoryWords(category);
+            updateFlashcard();
+        }
+
+        function updateFlashcard() {
+            const container = document.getElementById('flashcards-container');
+            container.innerHTML = `
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="furigana">${currentWords[currentWordIndex].furigana}</div>
+                            <div class="kanji">${currentWords[currentWordIndex].kanji}</div>
+                        </div>
+                        <div class="card-back">
+                            <div class="romaji">${currentWords[currentWordIndex].romaji}</div>
+                            <div class="translation">${currentWords[currentWordIndex].translation}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="button" onclick="previousCard()">← Назад</button>
+                    <button class="button" onclick="nextCard()">Вперёд →</button>
+                </div>
+                <div class="progress">
+                    Карточка ${currentWordIndex + 1} из ${currentWords.length}
+                </div>
+            `;
         }
 
         function showCategories() {
@@ -266,47 +313,18 @@
             document.querySelector('.header p').textContent = 'Выберите категорию для изучения';
         }
 
-        function getCategoryName(category) {
-            const names = {
-                'nature': 'Природа',
-                'food': 'Еда',
-                'communication': 'Общение',
-                'transport': 'Транспорт',
-                'emotions': 'Эмоции',
-                'time': 'Время'
-            };
-            return names[category];
-        }
-
         function flipCard(card) {
             card.classList.toggle('flipped');
         }
 
         function nextCard() {
-            if (!currentWords.length) return;
             currentWordIndex = (currentWordIndex + 1) % currentWords.length;
-            updateCardContent();
+            updateFlashcard();
         }
 
         function previousCard() {
-            if (!currentWords.length) return;
             currentWordIndex = (currentWordIndex - 1 + currentWords.length) % currentWords.length;
-            updateCardContent();
-        }
-
-        function updateCardContent() {
-            const word = currentWords[currentWordIndex];
-            const card = document.querySelector('.card');
-            
-            card.querySelector('.furigana').textContent = word.furigana;
-            card.querySelector('.kanji').textContent = word.kanji;
-            card.querySelector('.romaji').textContent = word.romaji;
-            card.querySelector('.translation').textContent = word.translation;
-            
-            card.classList.remove('flipped');
-            
-            document.querySelector('.progress').textContent = 
-                `Карточка ${currentWordIndex + 1} из ${currentWords.length}`;
+            updateFlashcard();
         }
 
         document.addEventListener('DOMContentLoaded', function() {
