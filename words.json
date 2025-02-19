@@ -1,19 +1,71 @@
 {
-    "words": [
-        {
-            "kanji": "私",
-            "furigana": "わたし",
-            "romaji": "watashi",
-            "translation": "Я",
-            "category": "местоимения"
-        },
-        {
-            "kanji": "今日",
-            "furigana": "きょう",
-            "romaji": "kyou",
-            "translation": "Сегодня",
-            "category": "время"
-        },
-        // ... много слов ...
-    ]
+    "nature": {
+        "title": "Природа",
+        "words": [
+            {
+                "kanji": "木",
+                "furigana": "き",
+                "romaji": "ki",
+                "translation": "Дерево"
+            },
+            {
+                "kanji": "花",
+                "furigana": "はな",
+                "romaji": "hana",
+                "translation": "Цветок"
+            },
+            {
+                "kanji": "山",
+                "furigana": "やま",
+                "romaji": "yama",
+                "translation": "Гора"
+            }
+        ]
+    },
+    "food": {
+        "title": "Еда",
+        "words": [
+            {
+                "kanji": "寿司",
+                "furigana": "すし",
+                "romaji": "sushi",
+                "translation": "Суши"
+            },
+            {
+                "kanji": "魚",
+                "furigana": "さかな",
+                "romaji": "sakana",
+                "translation": "Рыба"
+            },
+            {
+                "kanji": "米",
+                "furigana": "こめ",
+                "romaji": "kome",
+                "translation": "Рис"
+            }
+        ]
+    },
+    "communication": {
+        "title": "Общение",
+        "words": [
+            {
+                "kanji": "こんにちは",
+                "furigana": "こんにちは",
+                "romaji": "konnichiwa",
+                "translation": "Здравствуйте"
+            },
+            {
+                "kanji": "ありがとう",
+                "furigana": "ありがとう",
+                "romaji": "arigatou",
+                "translation": "Спасибо"
+            },
+            {
+                "kanji": "さようなら",
+                "furigana": "さようなら",
+                "romaji": "sayounara",
+                "translation": "До свидания"
+            }
+        ]
+    }
 }
