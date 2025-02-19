@@ -6,7 +6,7 @@ TOKEN = '7838081504:AAFM56XUSaLJQUBR6dzUWkzpHGasD6rMiNs'
 async def start(update, context):
     keyboard = [[KeyboardButton(
         text="Открыть LanguaGO",
-        web_app=WebAppInfo(url="https://alexmaximumus.github.io/Languago/")
+        web_app=WebAppInfo(url="https://alexmaximumus.github.io/Languago/")  # Проверьте этот URL
     )]]
     
     await update.message.reply_text(
