@@ -1,27 +1,172 @@
-<script>
-    let tg = window.Telegram.WebApp;
-    tg.expand();
-
-    // Загрузка слов из JSON файла
-    async function loadWords() {
-        try {
-            const response = await fetch('words.json');
-            const data = await response.json();
-            return data.words;
-        } catch (error) {
-            console.error('Ошибка загрузки слов:', error);
-            return [];
+<!DOCTYPE html>
+<html>
+<head>
+    <title>日本語 Study</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #fff;
         }
-    }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        .category-title {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .category-count {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .back-button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        #flashcards-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-button" onclick="showCategories()">← Назад к категориям</button>
+        
+        <div class="header">
+            <h1>日本語 Study</h1>
+            <p>Выберите категорию для изучения</p>
+        </div>
 
-    // Инициализация
-    async function init() {
-        cards = await loadWords();
-        updateCard();
-    }
+        <div id="categories-container" class="categories">
+            <div class="category-card" onclick="selectCategory('nature')">
+                <div class="category-icon">🌿</div>
+                <div class="category-title">Природа</div>
+                <div class="category-count">25 слов</div>
+            </div>
 
-    document.addEventListener('DOMContentLoaded', function() {
-        tg.ready();
-        init();
-    });
-</script>
+            <div class="category-card" onclick="selectCategory('food')">
+                <div class="category-icon">🍱</div>
+                <div class="category-title">Еда</div>
+                <div class="category-count">30 слов</div>
+            </div>
+
+            <div class="category-card" onclick="selectCategory('communication')">
+                <div class="category-icon">💬</div>
+                <div class="category-title">Общение</div>
+                <div class="category-count">40 слов</div>
+            </div>
+
+            <div class="category-card" onclick="selectCategory('transport')">
+                <div class="category-icon">🚆</div>
+                <div class="category-title">Транспорт</div>
+                <div class="category-count">20 слов</div>
+            </div>
+
+            <div class="category-card" onclick="selectCategory('emotions')">
+                <div class="category-icon">😊</div>
+                <div class="category-title">Эмоции</div>
+                <div class="category-count">15 слов</div>
+            </div>
+
+            <div class="category-card" onclick="selectCategory('time')">
+                <div class="category-icon">⏰</div>
+                <div class="category-title">Время</div>
+                <div class="category-count">35 слов</div>
+            </div>
+        </div>
+
+        <div id="flashcards-container">
+            <!-- Здесь будут карточки -->
+        </div>
+    </div>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+
+        function selectCategory(category) {
+            document.getElementById('categories-container').style.display = 'none';
+            document.getElementById('flashcards-container').style.display = 'block';
+            document.querySelector('.back-button').style.display = 'block';
+            document.querySelector('.header p').textContent = `Категория: ${getCategoryName(category)}`;
+            
+            // Здесь будем загружать слова для выбранной категории
+            loadCategoryWords(category);
+        }
+
+        function showCategories() {
+            document.getElementById('categories-container').style.display = 'grid';
+            document.getElementById('flashcards-container').style.display = 'none';
+            document.querySelector('.back-button').style.display = 'none';
+            document.querySelector('.header p').textContent = 'Выберите категорию для изучения';
+        }
+
+        function getCategoryName(category) {
+            const names = {
+                'nature': 'Природа',
+                'food': 'Еда',
+                'communication': 'Общение',
+                'transport': 'Транспорт',
+                'emotions': 'Эмоции',
+                'time': 'Время'
+            };
+            return names[category];
+        }
+
+        function loadCategoryWords(category) {
+            // Здесь будем загружать слова из JSON файла
+            console.log(`Загрузка слов для категории: ${category}`);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            tg.ready();
+        });
+    </script>
+</body>
+</html>
