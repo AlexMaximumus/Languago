@@ -227,7 +227,19 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                console.log('Загруженные данные:', data);
+                
+                // Подсчет слов
+                let totalWords = 0;
+                console.log('=== СТАТИСТИКА ЗАГРУЗКИ ===');
+                for (const [id, category] of Object.entries(data)) {
+                    const wordCount = category.words.length;
+                    totalWords += wordCount;
+                    console.log(`${category.title}: ${wordCount} слов`);
+                    console.log(`  Первое слово: ${category.words[0].kanji}`);
+                    console.log(`  Последнее слово: ${category.words[wordCount-1].kanji}`);
+                }
+                console.log(`=== ВСЕГО ЗАГРУЖЕНО: ${totalWords} СЛОВ ===`);
+                
                 categories = data;
                 displayCategories();
             } catch (error) {
