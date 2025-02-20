@@ -6,30 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            color: var(--tg-theme-text-color);
-            background: var(--tg-theme-bg-color);
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        /* Стили для списка категорий */
+        /* ... существующие стили ... */
+        
+        /* Добавим стили для сетки категорий */
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -65,105 +44,6 @@
             color: var(--tg-theme-hint-color);
             font-size: 14px;
         }
-
-        /* Стили для флип-карточек */
-        .flashcard {
-            perspective: 1000px;
-            height: 300px;
-            margin: 20px auto;
-            max-width: 500px;
-            cursor: pointer;
-        }
-
-        .flashcard-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            border-radius: 20px;
-        }
-
-        .flashcard.flipped .flashcard-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flashcard-front, .flashcard-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: var(--tg-theme-secondary-bg-color);
-            border-radius: 20px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .flashcard-back {
-            transform: rotateY(180deg);
-        }
-
-        .kanji {
-            font-size: 64px;
-            margin-bottom: 20px;
-        }
-
-        .furigana {
-            font-size: 24px;
-            color: var(--tg-theme-hint-color);
-        }
-
-        .meaning {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .romaji {
-            font-size: 24px;
-            color: var(--tg-theme-hint-color);
-        }
-
-        /* Навигация */
-        .back-button {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--tg-theme-link-color);
-            padding: 10px 0;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .nav-button {
-            background: var(--tg-theme-button-color);
-            color: var(--tg-theme-button-text-color);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .progress {
-            text-align: center;
-            margin-top: 15px;
-            color: var(--tg-theme-hint-color);
-        }
-
-        #flashcards-container {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -176,11 +56,11 @@
         </div>
 
         <div id="categories-container" class="categories-grid">
-            <!-- Категории добавляются динамически -->
+            <!-- Категории будут добавлены динамически -->
         </div>
 
-        <div id="flashcards-container">
-            <!-- Карточки добавляются динамически -->
+        <div id="flashcards-container" style="display: none;">
+            <!-- Карточки будут добавлены динамически -->
         </div>
     </div>
 
@@ -188,72 +68,46 @@
         let tg = window.Telegram.WebApp;
         tg.expand();
 
-        // Данные для категорий и карточек
-        const categories = {
-            numbers: {
-                title: "Числа",
-                icon: "🔢",
-                cards: [
-                    {
-                        kanji: "一",
-                        furigana: "いち",
-                        romaji: "ichi",
-                        meaning: "Один"
-                    },
-                    {
-                        kanji: "二",
-                        furigana: "に",
-                        romaji: "ni",
-                        meaning: "Два"
-                    },
-                    {
-                        kanji: "三",
-                        furigana: "さん",
-                        romaji: "san",
-                        meaning: "Три"
-                    },
-                    {
-                        kanji: "四",
-                        furigana: "し / よん",
-                        romaji: "shi / yon",
-                        meaning: "Четыре"
-                    }
-                ]
-            },
-            greetings: {
-                title: "Приветствия",
-                icon: "👋",
-                cards: [
-                    {
-                        kanji: "こんにちは",
-                        furigana: "こんにちは",
-                        romaji: "konnichiwa",
-                        meaning: "Здравствуйте"
-                    },
-                    {
-                        kanji: "さようなら",
-                        furigana: "さようなら",
-                        romaji: "sayounara",
-                        meaning: "До свидания"
-                    }
-                ]
-            },
-            // Добавьте больше категорий здесь
-        };
-
+        let categories = null;
         let currentCategory = null;
         let currentCardIndex = 0;
 
-        // Показать все категории
-        function showCategories() {
-            document.querySelector('.back-button').style.display = 'none';
-            document.querySelector('.header p').textContent = 'Выберите категорию для изучения';
-            document.getElementById('categories-container').style.display = 'grid';
-            document.getElementById('flashcards-container').style.display = 'none';
-            currentCategory = null;
+        // Загрузка данных из JSON файла
+        async function loadCategories() {
+            try {
+                const response = await fetch('words.json');
+                if (!response.ok) {
+                    throw new Error('Ошибка загрузки данных');
+                }
+                categories = await response.json();
+                displayCategories();
+            } catch (error) {
+                console.error('Ошибка:', error);
+                document.querySelector('.header p').textContent = 'Ошибка загрузки данных';
+            }
         }
 
-        // Показать карточки выбранной категории
+        // Отображение категорий
+        function displayCategories() {
+            const container = document.getElementById('categories-container');
+            container.innerHTML = '';
+
+            for (const [id, category] of Object.entries(categories)) {
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card';
+                categoryCard.onclick = () => showCategory(id);
+
+                categoryCard.innerHTML = `
+                    <div class="category-icon">${category.icon}</div>
+                    <div class="category-title">${category.title}</div>
+                    <div class="category-count">${category.words.length} слов</div>
+                `;
+
+                container.appendChild(categoryCard);
+            }
+        }
+
+        // Показать категорию
         function showCategory(categoryId) {
             currentCategory = categoryId;
             currentCardIndex = 0;
@@ -266,10 +120,18 @@
             updateCard();
         }
 
-        // Обновить текущую карточку
+        // Вернуться к списку категорий
+        function showCategories() {
+            document.querySelector('.back-button').style.display = 'none';
+            document.querySelector('.header p').textContent = 'Выберите категорию для изучения';
+            document.getElementById('categories-container').style.display = 'grid';
+            document.getElementById('flashcards-container').style.display = 'none';
+        }
+
+        // Обновить карточку
         function updateCard() {
             const category = categories[currentCategory];
-            const card = category.cards[currentCardIndex];
+            const card = category.words[currentCardIndex];
             
             const container = document.getElementById('flashcards-container');
             container.innerHTML = `
@@ -280,7 +142,7 @@
                             <div class="furigana">${card.furigana}</div>
                         </div>
                         <div class="flashcard-back">
-                            <div class="meaning">${card.meaning}</div>
+                            <div class="meaning">${card.translation}</div>
                             <div class="romaji">${card.romaji}</div>
                         </div>
                     </div>
@@ -290,7 +152,7 @@
                     <button class="nav-button" onclick="nextCard()">Вперёд →</button>
                 </div>
                 <div class="progress">
-                    Карточка ${currentCardIndex + 1} из ${category.cards.length}
+                    Карточка ${currentCardIndex + 1} из ${category.words.length}
                 </div>
             `;
         }
@@ -303,40 +165,21 @@
         // Следующая карточка
         function nextCard() {
             const category = categories[currentCategory];
-            currentCardIndex = (currentCardIndex + 1) % category.cards.length;
+            currentCardIndex = (currentCardIndex + 1) % category.words.length;
             updateCard();
         }
 
         // Предыдущая карточка
         function previousCard() {
             const category = categories[currentCategory];
-            currentCardIndex = (currentCardIndex - 1 + category.cards.length) % category.cards.length;
+            currentCardIndex = (currentCardIndex - 1 + category.words.length) % category.words.length;
             updateCard();
-        }
-
-        // Инициализация категорий при загрузке
-        function initCategories() {
-            const container = document.getElementById('categories-container');
-            
-            for (const [id, category] of Object.entries(categories)) {
-                const categoryElement = document.createElement('div');
-                categoryElement.className = 'category-card';
-                categoryElement.onclick = () => showCategory(id);
-                
-                categoryElement.innerHTML = `
-                    <div class="category-icon">${category.icon}</div>
-                    <div class="category-title">${category.title}</div>
-                    <div class="category-count">${category.cards.length} слов</div>
-                `;
-                
-                container.appendChild(categoryElement);
-            }
         }
 
         // Инициализация при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
             tg.ready();
-            initCategories();
+            loadCategories();
         });
     </script>
 </body>
