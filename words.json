@@ -1,379 +1,1489 @@
 {
-    "nature": {
-        "title": "Природа",
-        "icon": "🌿",
-        "words": [
-            {
-                "kanji": "木",
-                "furigana": "き",
-                "romaji": "ki",
-                "translation": "Дерево"
-            },
-            {
-                "kanji": "花",
-                "furigana": "はな",
-                "romaji": "hana",
-                "translation": "Цветок"
-            },
-            {
-                "kanji": "山",
-                "furigana": "やま",
-                "romaji": "yama",
-                "translation": "Гора"
-            },
-            {
-                "kanji": "川",
-                "furigana": "かわ",
-                "romaji": "kawa",
-                "translation": "Река"
-            },
-            {
-                "kanji": "海",
-                "furigana": "うみ",
-                "romaji": "umi",
-                "translation": "Море"
-            },
-            {
-                "kanji": "空",
-                "furigana": "そら",
-                "romaji": "sora",
-                "translation": "Небо"
-            },
-            {
-                "kanji": "雨",
-                "furigana": "あめ",
-                "romaji": "ame",
-                "translation": "Дождь"
-            },
-            {
-                "kanji": "雪",
-                "furigana": "ゆき",
-                "romaji": "yuki",
-                "translation": "Снег"
-            },
-            {
-                "kanji": "月",
-                "furigana": "つき",
-                "romaji": "tsuki",
-                "translation": "Луна"
-            },
-            {
-                "kanji": "太陽",
-                "furigana": "たいよう",
-                "romaji": "taiyou",
-                "translation": "Солнце"
-            },
-            {
-                "kanji": "星",
-                "furigana": "ほし",
-                "romaji": "hoshi",
-                "translation": "Звезда"
-            },
-            {
-                "kanji": "風",
-                "furigana": "かぜ",
-                "romaji": "kaze",
-                "translation": "Ветер"
-            },
-            {
-                "kanji": "森",
-                "furigana": "もり",
-                "romaji": "mori",
-                "translation": "Лес"
-            },
-            {
-                "kanji": "草",
-                "furigana": "くさ",
-                "romaji": "kusa",
-                "translation": "Трава"
-            },
-            {
-                "kanji": "葉",
-                "furigana": "は",
-                "romaji": "ha",
-                "translation": "Лист"
-            },
-            {
-                "kanji": "石",
-                "furigana": "いし",
-                "romaji": "ishi",
-                "translation": "Камень"
-            },
-            {
-                "kanji": "砂",
-                "furigana": "すな",
-                "romaji": "suna",
-                "translation": "Песок"
-            },
-            {
-                "kanji": "虹",
-                "furigana": "にじ",
-                "romaji": "niji",
-                "translation": "Радуга"
-            },
-            {
-                "kanji": "雲",
-                "furigana": "くも",
-                "romaji": "kumo",
-                "translation": "Облако"
-            },
-            {
-                "kanji": "霧",
-                "furigana": "きり",
-                "romaji": "kiri",
-                "translation": "Туман"
-            }
-        ]
-    },
-    "food": {
-        "title": "Еда",
-        "icon": "🍱",
-        "words": [
-            {
-                "kanji": "寿司",
-                "furigana": "すし",
-                "romaji": "sushi",
-                "translation": "Суши"
-            },
-            {
-                "kanji": "魚",
-                "furigana": "さかな",
-                "romaji": "sakana",
-                "translation": "Рыба"
-            },
-            {
-                "kanji": "米",
-                "furigana": "こめ",
-                "romaji": "kome",
-                "translation": "Рис"
-            },
-            {
-                "kanji": "肉",
-                "furigana": "にく",
-                "romaji": "niku",
-                "translation": "Мясо"
-            },
-            {
-                "kanji": "野菜",
-                "furigana": "やさい",
-                "romaji": "yasai",
-                "translation": "Овощи"
-            },
-            {
-                "kanji": "果物",
-                "furigana": "くだもの",
-                "romaji": "kudamono",
-                "translation": "Фрукты"
-            },
-            {
-                "kanji": "パン",
-                "furigana": "パン",
-                "romaji": "pan",
-                "translation": "Хлеб"
-            },
-            {
-                "kanji": "卵",
-                "furigana": "たまご",
-                "romaji": "tamago",
-                "translation": "Яйцо"
-            },
-            {
-                "kanji": "牛乳",
-                "furigana": "ぎゅうにゅう",
-                "romaji": "gyuunyuu",
-                "translation": "Молоко"
-            },
-            {
-                "kanji": "水",
-                "furigana": "みず",
-                "romaji": "mizu",
-                "translation": "Вода"
-            },
-            {
-                "kanji": "お茶",
-                "furigana": "おちゃ",
-                "romaji": "ocha",
-                "translation": "Чай"
-            },
-            {
-                "kanji": "コーヒー",
-                "furigana": "コーヒー",
-                "romaji": "koohii",
-                "translation": "Кофе"
-            },
-            {
-                "kanji": "ラーメン",
-                "furigana": "ラーメン",
-                "romaji": "raamen",
-                "translation": "Рамен"
-            },
-            {
-                "kanji": "うどん",
-                "furigana": "うどん",
-                "romaji": "udon",
-                "translation": "Удон"
-            },
-            {
-                "kanji": "そば",
-                "furigana": "そば",
-                "romaji": "soba",
-                "translation": "Соба"
-            },
-            {
-                "kanji": "味噌",
-                "furigana": "みそ",
-                "romaji": "miso",
-                "translation": "Мисо"
-            },
-            {
-                "kanji": "豆腐",
-                "furigana": "とうふ",
-                "romaji": "toufu",
-                "translation": "Тофу"
-            },
-            {
-                "kanji": "餃子",
-                "furigana": "ぎょうざ",
-                "romaji": "gyouza",
-                "translation": "Гёдза"
-            },
-            {
-                "kanji": "天ぷら",
-                "furigana": "てんぷら",
-                "romaji": "tenpura",
-                "translation": "Темпура"
-            },
-            {
-                "kanji": "カレー",
-                "furigana": "カレー",
-                "romaji": "karee",
-                "translation": "Карри"
-            }
-        ]
-    },
-    "communication": {
-        "title": "Общение",
-        "icon": "💬",
+    "greetings": {
+        "title": "Приветствия и основные выражения",
+        "icon": "👋",
         "words": [
             {
                 "kanji": "こんにちは",
                 "furigana": "こんにちは",
-                "romaji": "konnichiwa",
-                "translation": "Здравствуйте"
-            },
-            {
-                "kanji": "ありがとう",
-                "furigana": "ありがとう",
-                "romaji": "arigatou",
-                "translation": "Спасибо"
-            },
-            {
-                "kanji": "さようなら",
-                "furigana": "さようなら",
-                "romaji": "sayounara",
-                "translation": "До свидания"
+                "romaji": "Konnichiwa",
+                "translation": "Здравствуйте / Добрый день"
             },
             {
                 "kanji": "おはよう",
                 "furigana": "おはよう",
-                "romaji": "ohayou",
+                "romaji": "Ohayou",
                 "translation": "Доброе утро"
             },
             {
                 "kanji": "こんばんは",
                 "furigana": "こんばんは",
-                "romaji": "konbanwa",
+                "romaji": "Konbanwa",
                 "translation": "Добрый вечер"
+            },
+            {
+                "kanji": "お休みなさい",
+                "furigana": "おやすみなさい",
+                "romaji": "Oyasuminasai",
+                "translation": "Спокойной ночи"
+            },
+            {
+                "kanji": "さようなら",
+                "furigana": "さようなら",
+                "romaji": "Sayounara",
+                "translation": "До свидания"
+            },
+            {
+                "kanji": "ありがとう",
+                "furigana": "ありがとう",
+                "romaji": "Arigatou",
+                "translation": "Спасибо"
             },
             {
                 "kanji": "すみません",
                 "furigana": "すみません",
-                "romaji": "sumimasen",
-                "translation": "Извините"
+                "romaji": "Sumimasen",
+                "translation": "Извините / Простите"
             },
             {
-                "kanji": "お願いします",
-                "furigana": "おねがいします",
-                "romaji": "onegaishimasu",
-                "translation": "Пожалуйста (просьба)"
+                "kanji": "ごめんなさい",
+                "furigana": "ごめんなさい",
+                "romaji": "Gomennasai",
+                "translation": "Простите (более искреннее извинение)"
             },
             {
                 "kanji": "はい",
                 "furigana": "はい",
-                "romaji": "hai",
+                "romaji": "Hai",
                 "translation": "Да"
             },
             {
                 "kanji": "いいえ",
                 "furigana": "いいえ",
-                "romaji": "iie",
+                "romaji": "Iie",
                 "translation": "Нет"
+            }
+        ]
+    },
+    "numbers": {
+        "title": "Числа",
+        "icon": "🔢",
+        "words": [
+            {
+                "kanji": "一",
+                "furigana": "いち",
+                "romaji": "Ichi",
+                "translation": "Один"
             },
             {
-                "kanji": "分かりました",
-                "furigana": "わかりました",
-                "romaji": "wakarimashita",
-                "translation": "Понял"
+                "kanji": "二",
+                "furigana": "に",
+                "romaji": "Ni",
+                "translation": "Два"
             },
             {
-                "kanji": "お名前は？",
-                "furigana": "おなまえは？",
-                "romaji": "onamae wa?",
-                "translation": "Как вас зовут?"
+                "kanji": "三",
+                "furigana": "さん",
+                "romaji": "San",
+                "translation": "Три"
             },
             {
-                "kanji": "初めまして",
-                "furigana": "はじめまして",
-                "romaji": "hajimemashite",
-                "translation": "Приятно познакомиться"
+                "kanji": "四",
+                "furigana": "し / よん",
+                "romaji": "Shi / Yon",
+                "translation": "Четыре"
             },
             {
-                "kanji": "元気ですか",
-                "furigana": "げんきですか",
-                "romaji": "genki desu ka",
-                "translation": "Как дела?"
+                "kanji": "五",
+                "furigana": "ご",
+                "romaji": "Go",
+                "translation": "Пять"
             },
             {
-                "kanji": "お疲れ様です",
-                "furigana": "おつかれさまです",
-                "romaji": "otsukaresama desu",
-                "translation": "Спасибо за работу"
+                "kanji": "六",
+                "furigana": "ろく",
+                "romaji": "Roku",
+                "translation": "Шесть"
             },
             {
-                "kanji": "どうぞ",
-                "furigana": "どうぞ",
-                "romaji": "douzo",
-                "translation": "Пожалуйста (предложение)"
+                "kanji": "七",
+                "furigana": "しち / なな",
+                "romaji": "Shichi / Nana",
+                "translation": "Семь"
             },
             {
-                "kanji": "ごめんなさい",
-                "furigana": "ごめんなさい",
-                "romaji": "gomennasai",
-                "translation": "Простите"
+                "kanji": "八",
+                "furigana": "はち",
+                "romaji": "Hachi",
+                "translation": "Восемь"
             },
             {
-                "kanji": "また会いましょう",
-                "furigana": "またあいましょう",
-                "romaji": "mata aimashou",
-                "translation": "Давайте встретимся снова"
+                "kanji": "九",
+                "furigana": "きゅう / く",
+                "romaji": "Kyuu / Ku",
+                "translation": "Девять"
             },
             {
-                "kanji": "お大事に",
-                "furigana": "おだいじに",
-                "romaji": "odaiji ni",
-                "translation": "Берегите себя"
+                "kanji": "十",
+                "furigana": "じゅう",
+                "romaji": "Juu",
+                "translation": "Десять"
+            }
+        ]
+    },
+    "time": {
+        "title": "Время и дни недели",
+        "icon": "⏰",
+        "words": [
+            {
+                "kanji": "時間",
+                "furigana": "じかん",
+                "romaji": "Jikan",
+                "translation": "Время"
             },
             {
-                "kanji": "頑張って",
-                "furigana": "がんばって",
-                "romaji": "ganbatte",
-                "translation": "Удачи/Старайся"
+                "kanji": "分",
+                "furigana": "ふん / ぷん",
+                "romaji": "Fun / Pun",
+                "translation": "Минута"
             },
             {
-                "kanji": "いただきます",
-                "furigana": "いただきます",
-                "romaji": "itadakimasu",
-                "translation": "Приятного аппетита"
+                "kanji": "秒",
+                "furigana": "びょう",
+                "romaji": "Byou",
+                "translation": "Секунда"
+            },
+            {
+                "kanji": "時",
+                "furigana": "じ",
+                "romaji": "Ji",
+                "translation": "Час"
+            },
+            {
+                "kanji": "今日",
+                "furigana": "きょう",
+                "romaji": "Kyou",
+                "translation": "Сегодня"
+            },
+            {
+                "kanji": "明日",
+                "furigana": "あした",
+                "romaji": "Ashita",
+                "translation": "Завтра"
+            },
+            {
+                "kanji": "昨日",
+                "furigana": "きのう",
+                "romaji": "Kinou",
+                "translation": "Вчера"
+            },
+            {
+                "kanji": "朝",
+                "furigana": "あさ",
+                "romaji": "Asa",
+                "translation": "Утро"
+            },
+            {
+                "kanji": "昼",
+                "furigana": "ひる",
+                "romaji": "Hiru",
+                "translation": "День"
+            },
+            {
+                "kanji": "夜",
+                "furigana": "よる",
+                "romaji": "Yoru",
+                "translation": "Вечер / Ночь"
+            },
+            {
+                "kanji": "今",
+                "furigana": "いま",
+                "romaji": "Ima",
+                "translation": "Сейчас"
+            },
+            {
+                "kanji": "後",
+                "furigana": "あと",
+                "romaji": "Ato",
+                "translation": "Позже / После"
+            },
+            {
+                "kanji": "前",
+                "furigana": "まえ",
+                "romaji": "Mae",
+                "translation": "Перед / Раньше"
+            },
+            {
+                "kanji": "月曜日",
+                "furigana": "げつようび",
+                "romaji": "Getsuyoubi",
+                "translation": "Понедельник"
+            },
+            {
+                "kanji": "火曜日",
+                "furigana": "かようび",
+                "romaji": "Kayoubi",
+                "translation": "Вторник"
+            },
+            {
+                "kanji": "水曜日",
+                "furigana": "すいようび",
+                "romaji": "Suiyoubi",
+                "translation": "Среда"
+            },
+            {
+                "kanji": "木曜日",
+                "furigana": "もくようび",
+                "romaji": "Mokuyoubi",
+                "translation": "Четверг"
+            },
+            {
+                "kanji": "金曜日",
+                "furigana": "きんようび",
+                "romaji": "Kinyoubi",
+                "translation": "Пятница"
+            },
+            {
+                "kanji": "土曜日",
+                "furigana": "どようび",
+                "romaji": "Doyoubi",
+                "translation": "Суббота"
+            },
+            {
+                "kanji": "日曜日",
+                "furigana": "にちようび",
+                "romaji": "Nichiyoubi",
+                "translation": "Воскресенье"
+            }
+        ]
+    },
+    "family": {
+        "title": "Семья",
+        "icon": "👨‍👩‍👧‍👦",
+        "words": [
+            {
+                "kanji": "家族",
+                "furigana": "かぞく",
+                "romaji": "Kazoku",
+                "translation": "Семья"
+            },
+            {
+                "kanji": "父",
+                "furigana": "ちち",
+                "romaji": "Chichi",
+                "translation": "Отец (свой)"
+            },
+            {
+                "kanji": "母",
+                "furigana": "はは",
+                "romaji": "Haha",
+                "translation": "Мать (своя)"
+            },
+            {
+                "kanji": "お父さん",
+                "furigana": "おとうさん",
+                "romaji": "Otousan",
+                "translation": "Отец (чужой)"
+            },
+            {
+                "kanji": "お母さん",
+                "furigana": "おかあさん",
+                "romaji": "Okaasan",
+                "translation": "Мать (чужая)"
+            },
+            {
+                "kanji": "兄",
+                "furigana": "あに",
+                "romaji": "Ani",
+                "translation": "Старший брат (свой)"
+            },
+            {
+                "kanji": "姉",
+                "furigana": "あね",
+                "romaji": "Ane",
+                "translation": "Старшая сестра (своя)"
+            },
+            {
+                "kanji": "弟",
+                "furigana": "おとうと",
+                "romaji": "Otouto",
+                "translation": "Младший брат"
+            },
+            {
+                "kanji": "妹",
+                "furigana": "いもうと",
+                "romaji": "Imouto",
+                "translation": "Младшая сестра"
+            },
+            {
+                "kanji": "祖父",
+                "furigana": "そふ",
+                "romaji": "Sofu",
+                "translation": "Дедушка"
+            }
+        ]
+    },
+    "food": {
+        "title": "Еда и напитки",
+        "icon": "🍱",
+        "words": [
+            {
+                "kanji": "食べ物",
+                "furigana": "たべもの",
+                "romaji": "Tabemono",
+                "translation": "Еда"
+            },
+            {
+                "kanji": "飲み物",
+                "furigana": "のみもの",
+                "romaji": "Nomimono",
+                "translation": "Напиток"
+            },
+            {
+                "kanji": "ご飯",
+                "furigana": "ごはん",
+                "romaji": "Gohan",
+                "translation": "Рис / Еда"
+            },
+            {
+                "kanji": "水",
+                "furigana": "みず",
+                "romaji": "Mizu",
+                "translation": "Вода"
+            },
+            {
+                "kanji": "お茶",
+                "furigana": "おちゃ",
+                "romaji": "Ocha",
+                "translation": "Чай"
+            },
+            {
+                "kanji": "コーヒー",
+                "furigana": "コーヒー",
+                "romaji": "Koohii",
+                "translation": "Кофе"
+            },
+            {
+                "kanji": "牛乳",
+                "furigana": "ぎゅうにゅう",
+                "romaji": "Gyuunyuu",
+                "translation": "Молоко"
+            },
+            {
+                "kanji": "パン",
+                "furigana": "パン",
+                "romaji": "Pan",
+                "translation": "Хлеб"
+            },
+            {
+                "kanji": "卵",
+                "furigana": "たまご",
+                "romaji": "Tamago",
+                "translation": "Яйцо"
+            },
+            {
+                "kanji": "肉",
+                "furigana": "にく",
+                "romaji": "Niku",
+                "translation": "Мясо"
+            },
+            {
+                "kanji": "魚",
+                "furigana": "さかな",
+                "romaji": "Sakana",
+                "translation": "Рыба"
+            },
+            {
+                "kanji": "野菜",
+                "furigana": "やさい",
+                "romaji": "Yasai",
+                "translation": "Овощи"
+            },
+            {
+                "kanji": "果物",
+                "furigana": "くだもの",
+                "romaji": "Kudamono",
+                "translation": "Фрукты"
+            },
+            {
+                "kanji": "りんご",
+                "furigana": "りんご",
+                "romaji": "Ringo",
+                "translation": "Яблоко"
+            },
+            {
+                "kanji": "バナナ",
+                "furigana": "バナナ",
+                "romaji": "Banana",
+                "translation": "Банан"
+            },
+            {
+                "kanji": "みかん",
+                "furigana": "みかん",
+                "romaji": "Mikan",
+                "translation": "Мандарин"
+            },
+            {
+                "kanji": "チーズ",
+                "furigana": "チーズ",
+                "romaji": "Chiizu",
+                "translation": "Сыр"
+            },
+            {
+                "kanji": "塩",
+                "furigana": "しお",
+                "romaji": "Shio",
+                "translation": "Соль"
+            },
+            {
+                "kanji": "砂糖",
+                "furigana": "さとう",
+                "romaji": "Satou",
+                "translation": "Сахар"
+            },
+            {
+                "kanji": "酒",
+                "furigana": "さけ",
+                "romaji": "Sake",
+                "translation": "Алкоголь / Саке"
+            }
+        ]
+    },
+    "nature": {
+        "title": "Природа",
+        "icon": "🌿",
+        "words": [
+            {
+                "kanji": "自然",
+                "furigana": "しぜん",
+                "romaji": "Shizen",
+                "translation": "Природа"
+            },
+            {
+                "kanji": "山",
+                "furigana": "やま",
+                "romaji": "Yama",
+                "translation": "Гора"
+            },
+            {
+                "kanji": "川",
+                "furigana": "かわ",
+                "romaji": "Kawa",
+                "translation": "Река"
+            },
+            {
+                "kanji": "海",
+                "furigana": "うみ",
+                "romaji": "Umi",
+                "translation": "Море"
+            },
+            {
+                "kanji": "空",
+                "furigana": "そら",
+                "romaji": "Sora",
+                "translation": "Небо"
+            },
+            {
+                "kanji": "太陽",
+                "furigana": "たいよう",
+                "romaji": "Taiyou",
+                "translation": "Солнце"
+            },
+            {
+                "kanji": "月",
+                "furigana": "つき",
+                "romaji": "Tsuki",
+                "translation": "Луна"
+            },
+            {
+                "kanji": "星",
+                "furigana": "ほし",
+                "romaji": "Hoshi",
+                "translation": "Звезда"
+            },
+            {
+                "kanji": "花",
+                "furigana": "はな",
+                "romaji": "Hana",
+                "translation": "Цветок"
+            },
+            {
+                "kanji": "木",
+                "furigana": "き",
+                "romaji": "Ki",
+                "translation": "Дерево"
+            }
+        ]
+    },
+    "transport": {
+        "title": "Транспорт и перемещение",
+        "icon": "🚗",
+        "words": [
+            {
+                "kanji": "車",
+                "furigana": "くるま",
+                "romaji": "Kuruma",
+                "translation": "Машина"
+            },
+            {
+                "kanji": "電車",
+                "furigana": "でんしゃ",
+                "romaji": "Densha",
+                "translation": "Поезд"
+            },
+            {
+                "kanji": "バス",
+                "furigana": "バス",
+                "romaji": "Basu",
+                "translation": "Автобус"
+            },
+            {
+                "kanji": "自転車",
+                "furigana": "じてんしゃ",
+                "romaji": "Jitensha",
+                "translation": "Велосипед"
+            },
+            {
+                "kanji": "飛行機",
+                "furigana": "ひこうき",
+                "romaji": "Hikouki",
+                "translation": "Самолет"
+            },
+            {
+                "kanji": "船",
+                "furigana": "ふね",
+                "romaji": "Fune",
+                "translation": "Корабль"
+            },
+            {
+                "kanji": "駅",
+                "furigana": "えき",
+                "romaji": "Eki",
+                "translation": "Станция"
+            },
+            {
+                "kanji": "空港",
+                "furigana": "くうこう",
+                "romaji": "Kuukou",
+                "translation": "Аэропорт"
+            },
+            {
+                "kanji": "道",
+                "furigana": "みち",
+                "romaji": "Michi",
+                "translation": "Дорога"
+            },
+            {
+                "kanji": "信号",
+                "furigana": "しんごう",
+                "romaji": "Shingou",
+                "translation": "Светофор"
+            },
+            {
+                "kanji": "歩く",
+                "furigana": "あるく",
+                "romaji": "Aruku",
+                "translation": "Идти пешком"
+            },
+            {
+                "kanji": "走る",
+                "furigana": "はしる",
+                "romaji": "Hashiru",
+                "translation": "Бежать"
+            },
+            {
+                "kanji": "止まる",
+                "furigana": "とまる",
+                "romaji": "Tomaru",
+                "translation": "Останавливаться"
+            },
+            {
+                "kanji": "曲がる",
+                "furigana": "まがる",
+                "romaji": "Magaru",
+                "translation": "Поворачивать"
+            },
+            {
+                "kanji": "乗る",
+                "furigana": "のる",
+                "romaji": "Noru",
+                "translation": "Садиться (в транспорт)"
+            },
+            {
+                "kanji": "降りる",
+                "furigana": "おりる",
+                "romaji": "Oriru",
+                "translation": "Выходить (из транспорта)"
+            },
+            {
+                "kanji": "運転",
+                "furigana": "うんてん",
+                "romaji": "Unten",
+                "translation": "Вождение"
+            },
+            {
+                "kanji": "切符",
+                "furigana": "きっぷ",
+                "romaji": "Kippu",
+                "translation": "Билет"
+            },
+            {
+                "kanji": "地下鉄",
+                "furigana": "ちかてつ",
+                "romaji": "Chikatetsu",
+                "translation": "Метро"
+            },
+            {
+                "kanji": "タクシー",
+                "furigana": "タクシー",
+                "romaji": "Takushii",
+                "translation": "Такси"
+            }
+        ]
+    },
+    "home": {
+        "title": "Дом и быт",
+        "icon": "🏠",
+        "words": [
+            {
+                "kanji": "家",
+                "furigana": "いえ",
+                "romaji": "Ie",
+                "translation": "Дом"
+            },
+            {
+                "kanji": "部屋",
+                "furigana": "へや",
+                "romaji": "Heya",
+                "translation": "Комната"
+            },
+            {
+                "kanji": "台所",
+                "furigana": "だいどころ",
+                "romaji": "Daidokoro",
+                "translation": "Кухня"
+            },
+            {
+                "kanji": "風呂",
+                "furigana": "ふろ",
+                "romaji": "Furo",
+                "translation": "Ванна"
+            },
+            {
+                "kanji": "トイレ",
+                "furigana": "トイレ",
+                "romaji": "Toire",
+                "translation": "Туалет"
+            },
+            {
+                "kanji": "窓",
+                "furigana": "まど",
+                "romaji": "Mado",
+                "translation": "Окно"
+            },
+            {
+                "kanji": "ドア",
+                "furigana": "ドア",
+                "romaji": "Doa",
+                "translation": "Дверь"
+            },
+            {
+                "kanji": "椅子",
+                "furigana": "いす",
+                "romaji": "Isu",
+                "translation": "Стул"
+            },
+            {
+                "kanji": "机",
+                "furigana": "つくえ",
+                "romaji": "Tsukue",
+                "translation": "Стол"
+            },
+            {
+                "kanji": "ベッド",
+                "furigana": "ベッド",
+                "romaji": "Beddo",
+                "translation": "Кровать"
+            },
+            {
+                "kanji": "電気",
+                "furigana": "でんき",
+                "romaji": "Denki",
+                "translation": "Электричество / Свет"
+            },
+            {
+                "kanji": "テレビ",
+                "furigana": "テレビ",
+                "romaji": "Terebi",
+                "translation": "Телевизор"
+            },
+            {
+                "kanji": "冷蔵庫",
+                "furigana": "れいぞうこ",
+                "romaji": "Reizouko",
+                "translation": "Холодильник"
+            },
+            {
+                "kanji": "洗濯機",
+                "furigana": "せんたくき",
+                "romaji": "Sentakuki",
+                "translation": "Стиральная машина"
+            },
+            {
+                "kanji": "掃除",
+                "furigana": "そうじ",
+                "romaji": "Souji",
+                "translation": "Уборка"
+            }
+        ]
+    },
+    "clothing": {
+        "title": "Одежда и аксессуары",
+        "icon": "👕",
+        "words": [
+            {
+                "kanji": "服",
+                "furigana": "ふく",
+                "romaji": "Fuku",
+                "translation": "Одежда"
+            },
+            {
+                "kanji": "シャツ",
+                "furigana": "シャツ",
+                "romaji": "Shatsu",
+                "translation": "Рубашка"
+            },
+            {
+                "kanji": "ズボン",
+                "furigana": "ズボン",
+                "romaji": "Zubon",
+                "translation": "Брюки"
+            },
+            {
+                "kanji": "スカート",
+                "furigana": "スカート",
+                "romaji": "Sukaato",
+                "translation": "Юбка"
+            },
+            {
+                "kanji": "靴",
+                "furigana": "くつ",
+                "romaji": "Kutsu",
+                "translation": "Обувь"
+            },
+            {
+                "kanji": "帽子",
+                "furigana": "ぼうし",
+                "romaji": "Boushi",
+                "translation": "Шляпа"
+            },
+            {
+                "kanji": "靴下",
+                "furigana": "くつした",
+                "romaji": "Kutsushita",
+                "translation": "Носки"
+            },
+            {
+                "kanji": "手袋",
+                "furigana": "てぶくろ",
+                "romaji": "Tebukuro",
+                "translation": "Перчатки"
+            },
+            {
+                "kanji": "コート",
+                "furigana": "コート",
+                "romaji": "Kooto",
+                "translation": "Пальто"
+            },
+            {
+                "kanji": "ジャケット",
+                "furigana": "ジャケット",
+                "romaji": "Jaketto",
+                "translation": "Куртка"
+            },
+            {
+                "kanji": "セーター",
+                "furigana": "セーター",
+                "romaji": "Seetaa",
+                "translation": "Свитер"
+            },
+            {
+                "kanji": "ネクタイ",
+                "furigana": "ネクタイ",
+                "romaji": "Nekutai",
+                "translation": "Галстук"
+            },
+            {
+                "kanji": "ベルト",
+                "furigana": "ベルト",
+                "romaji": "Beruto",
+                "translation": "Ремень"
+            },
+            {
+                "kanji": "眼鏡",
+                "furigana": "めがね",
+                "romaji": "Megane",
+                "translation": "Очки"
+            },
+            {
+                "kanji": "時計",
+                "furigana": "とけい",
+                "romaji": "Tokei",
+                "translation": "Часы"
+            }
+        ]
+    },
+    "weather": {
+        "title": "Погода",
+        "icon": "🌤️",
+        "words": [
+            {
+                "kanji": "天気",
+                "furigana": "てんき",
+                "romaji": "Tenki",
+                "translation": "Погода"
+            },
+            {
+                "kanji": "晴れ",
+                "furigana": "はれ",
+                "romaji": "Hare",
+                "translation": "Солнечно"
+            },
+            {
+                "kanji": "雨",
+                "furigana": "あめ",
+                "romaji": "Ame",
+                "translation": "Дождь"
+            },
+            {
+                "kanji": "雪",
+                "furigana": "ゆき",
+                "romaji": "Yuki",
+                "translation": "Снег"
+            },
+            {
+                "kanji": "曇り",
+                "furigana": "くもり",
+                "romaji": "Kumori",
+                "translation": "Пасмурно"
+            },
+            {
+                "kanji": "風",
+                "furigana": "かぜ",
+                "romaji": "Kaze",
+                "translation": "Ветер"
+            },
+            {
+                "kanji": "雷",
+                "furigana": "かみなり",
+                "romaji": "Kaminari",
+                "translation": "Гром"
+            },
+            {
+                "kanji": "暑い",
+                "furigana": "あつい",
+                "romaji": "Atsui",
+                "translation": "Жарко"
+            },
+            {
+                "kanji": "寒い",
+                "furigana": "さむい",
+                "romaji": "Samui",
+                "translation": "Холодно"
+            },
+            {
+                "kanji": "暖かい",
+                "furigana": "あたたかい",
+                "romaji": "Atatakai",
+                "translation": "Тепло"
+            },
+            {
+                "kanji": "涼しい",
+                "furigana": "すずしい",
+                "romaji": "Suzushii",
+                "translation": "Прохладно"
+            },
+            {
+                "kanji": "湿度",
+                "furigana": "しつど",
+                "romaji": "Shitsudo",
+                "translation": "Влажность"
+            },
+            {
+                "kanji": "温度",
+                "furigana": "おんど",
+                "romaji": "Ondo",
+                "translation": "Температура"
+            },
+            {
+                "kanji": "天気予報",
+                "furigana": "てんきよほう",
+                "romaji": "Tenkiyohou",
+                "translation": "Прогноз погоды"
+            },
+            {
+                "kanji": "季節",
+                "furigana": "きせつ",
+                "romaji": "Kisetsu",
+                "translation": "Время года"
+            }
+        ]
+    },
+    "emotions": {
+        "title": "Эмоции и чувства",
+        "icon": "😊",
+        "words": [
+            {
+                "kanji": "嬉しい",
+                "furigana": "うれしい",
+                "romaji": "Ureshii",
+                "translation": "Радостный"
+            },
+            {
+                "kanji": "悲しい",
+                "furigana": "かなしい",
+                "romaji": "Kanashii",
+                "translation": "Грустный"
+            },
+            {
+                "kanji": "楽しい",
+                "furigana": "たのしい",
+                "romaji": "Tanoshii",
+                "translation": "Веселый"
+            },
+            {
+                "kanji": "怒る",
+                "furigana": "おこる",
+                "romaji": "Okoru",
+                "translation": "Злиться"
+            },
+            {
+                "kanji": "怖い",
+                "furigana": "こわい",
+                "romaji": "Kowai",
+                "translation": "Страшный"
+            }
+        ]
+    },
+    "animals": {
+        "title": "Животные",
+        "icon": "🐾",
+        "words": [
+            {
+                "kanji": "動物",
+                "furigana": "どうぶつ",
+                "romaji": "Doubutsu",
+                "translation": "Животное"
+            },
+            {
+                "kanji": "猫",
+                "furigana": "ねこ",
+                "romaji": "Neko",
+                "translation": "Кошка"
+            },
+            {
+                "kanji": "犬",
+                "furigana": "いぬ",
+                "romaji": "Inu",
+                "translation": "Собака"
+            },
+            {
+                "kanji": "鳥",
+                "furigana": "とり",
+                "romaji": "Tori",
+                "translation": "Птица"
+            },
+            {
+                "kanji": "魚",
+                "furigana": "さかな",
+                "romaji": "Sakana",
+                "translation": "Рыба"
+            },
+            {
+                "kanji": "馬",
+                "furigana": "うま",
+                "romaji": "Uma",
+                "translation": "Лошадь"
+            },
+            {
+                "kanji": "牛",
+                "furigana": "うし",
+                "romaji": "Ushi",
+                "translation": "Корова"
+            },
+            {
+                "kanji": "豚",
+                "furigana": "ぶた",
+                "romaji": "Buta",
+                "translation": "Свинья"
+            },
+            {
+                "kanji": "羊",
+                "furigana": "ひつじ",
+                "romaji": "Hitsuji",
+                "translation": "Овца"
+            },
+            {
+                "kanji": "猿",
+                "furigana": "さる",
+                "romaji": "Saru",
+                "translation": "Обезьяна"
+            },
+            {
+                "kanji": "熊",
+                "furigana": "くま",
+                "romaji": "Kuma",
+                "translation": "Медведь"
+            },
+            {
+                "kanji": "虎",
+                "furigana": "とら",
+                "romaji": "Tora",
+                "translation": "Тигр"
+            },
+            {
+                "kanji": "象",
+                "furigana": "ぞう",
+                "romaji": "Zou",
+                "translation": "Слон"
+            },
+            {
+                "kanji": "蛇",
+                "furigana": "へび",
+                "romaji": "Hebi",
+                "translation": "Змея"
+            },
+            {
+                "kanji": "虫",
+                "furigana": "むし",
+                "romaji": "Mushi",
+                "translation": "Насекомое"
+            }
+        ]
+    },
+    "professions": {
+        "title": "Профессии",
+        "icon": "👨‍💼",
+        "words": [
+            {
+                "kanji": "仕事",
+                "furigana": "しごと",
+                "romaji": "Shigoto",
+                "translation": "Работа"
+            },
+            {
+                "kanji": "先生",
+                "furigana": "せんせい",
+                "romaji": "Sensei",
+                "translation": "Учитель"
+            },
+            {
+                "kanji": "医者",
+                "furigana": "いしゃ",
+                "romaji": "Isha",
+                "translation": "Врач"
+            },
+            {
+                "kanji": "看護師",
+                "furigana": "かんごし",
+                "romaji": "Kangoshi",
+                "translation": "Медсестра"
+            },
+            {
+                "kanji": "警察",
+                "furigana": "けいさつ",
+                "romaji": "Keisatsu",
+                "translation": "Полиция"
+            },
+            {
+                "kanji": "消防士",
+                "furigana": "しょうぼうし",
+                "romaji": "Shouboushi",
+                "translation": "Пожарный"
+            },
+            {
+                "kanji": "弁護士",
+                "furigana": "べんごし",
+                "romaji": "Bengoshi",
+                "translation": "Адвокат"
+            },
+            {
+                "kanji": "エンジニア",
+                "furigana": "エンジニア",
+                "romaji": "Enjinia",
+                "translation": "Инженер"
+            },
+            {
+                "kanji": "プログラマー",
+                "furigana": "プログラマー",
+                "romaji": "Puroguramaa",
+                "translation": "Программист"
+            },
+            {
+                "kanji": "画家",
+                "furigana": "がか",
+                "romaji": "Gaka",
+                "translation": "Художник"
+            },
+            {
+                "kanji": "音楽家",
+                "furigana": "おんがくか",
+                "romaji": "Ongakuka",
+                "translation": "Музыкант"
+            },
+            {
+                "kanji": "作家",
+                "furigana": "さっか",
+                "romaji": "Sakka",
+                "translation": "Писатель"
+            },
+            {
+                "kanji": "俳優",
+                "furigana": "はいゆう",
+                "romaji": "Haiyuu",
+                "translation": "Актер"
+            },
+            {
+                "kanji": "歌手",
+                "furigana": "かしゅ",
+                "romaji": "Kashu",
+                "translation": "Певец"
+            },
+            {
+                "kanji": "料理人",
+                "furigana": "りょうりにん",
+                "romaji": "Ryourinin",
+                "translation": "Повар"
+            }
+        ]
+    },
+    "colors": {
+        "title": "Цвета",
+        "icon": "🎨",
+        "words": [
+            {
+                "kanji": "色",
+                "furigana": "いろ",
+                "romaji": "Iro",
+                "translation": "Цвет"
+            },
+            {
+                "kanji": "赤",
+                "furigana": "あか",
+                "romaji": "Aka",
+                "translation": "Красный"
+            },
+            {
+                "kanji": "青",
+                "furigana": "あお",
+                "romaji": "Ao",
+                "translation": "Синий"
+            },
+            {
+                "kanji": "緑",
+                "furigana": "みどり",
+                "romaji": "Midori",
+                "translation": "Зеленый"
+            },
+            {
+                "kanji": "黄色",
+                "furigana": "きいろ",
+                "romaji": "Kiiro",
+                "translation": "Желтый"
+            },
+            {
+                "kanji": "白",
+                "furigana": "しろ",
+                "romaji": "Shiro",
+                "translation": "Белый"
+            },
+            {
+                "kanji": "黒",
+                "furigana": "くろ",
+                "romaji": "Kuro",
+                "translation": "Черный"
+            },
+            {
+                "kanji": "紫",
+                "furigana": "むらさき",
+                "romaji": "Murasaki",
+                "translation": "Фиолетовый"
+            },
+            {
+                "kanji": "茶色",
+                "furigana": "ちゃいろ",
+                "romaji": "Chairo",
+                "translation": "Коричневый"
+            },
+            {
+                "kanji": "灰色",
+                "furigana": "はいいろ",
+                "romaji": "Haiiro",
+                "translation": "Серый"
+            }
+        ]
+    },
+    "school": {
+        "title": "Школа и образование",
+        "icon": "📚",
+        "words": [
+            {
+                "kanji": "学校",
+                "furigana": "がっこう",
+                "romaji": "Gakkou",
+                "translation": "Школа"
+            },
+            {
+                "kanji": "学生",
+                "furigana": "がくせい",
+                "romaji": "Gakusei",
+                "translation": "Студент"
+            },
+            {
+                "kanji": "先生",
+                "furigana": "せんせい",
+                "romaji": "Sensei",
+                "translation": "Учитель"
+            },
+            {
+                "kanji": "教科書",
+                "furigana": "きょうかしょ",
+                "romaji": "Kyoukasho",
+                "translation": "Учебник"
+            },
+            {
+                "kanji": "授業",
+                "furigana": "じゅぎょう",
+                "romaji": "Jugyou",
+                "translation": "Урок"
+            },
+            {
+                "kanji": "勉強",
+                "furigana": "べんきょう",
+                "romaji": "Benkyou",
+                "translation": "Учеба"
+            },
+            {
+                "kanji": "試験",
+                "furigana": "しけん",
+                "romaji": "Shiken",
+                "translation": "Экзамен"
+            },
+            {
+                "kanji": "宿題",
+                "furigana": "しゅくだい",
+                "romaji": "Shukudai",
+                "translation": "Домашнее задание"
+            },
+            {
+                "kanji": "鉛筆",
+                "furigana": "えんぴつ",
+                "romaji": "Enpitsu",
+                "translation": "Карандаш"
+            },
+            {
+                "kanji": "消しゴム",
+                "furigana": "けしゴム",
+                "romaji": "Keshigomu",
+                "translation": "Ластик"
+            }
+        ]
+    },
+    "body": {
+        "title": "Тело человека",
+        "icon": "👤",
+        "words": [
+            {
+                "kanji": "体",
+                "furigana": "からだ",
+                "romaji": "Karada",
+                "translation": "Тело"
+            },
+            {
+                "kanji": "頭",
+                "furigana": "あたま",
+                "romaji": "Atama",
+                "translation": "Голова"
+            },
+            {
+                "kanji": "顔",
+                "furigana": "かお",
+                "romaji": "Kao",
+                "translation": "Лицо"
+            },
+            {
+                "kanji": "目",
+                "furigana": "め",
+                "romaji": "Me",
+                "translation": "Глаз"
+            },
+            {
+                "kanji": "鼻",
+                "furigana": "はな",
+                "romaji": "Hana",
+                "translation": "Нос"
+            },
+            {
+                "kanji": "口",
+                "furigana": "くち",
+                "romaji": "Kuchi",
+                "translation": "Рот"
+            },
+            {
+                "kanji": "耳",
+                "furigana": "みみ",
+                "romaji": "Mimi",
+                "translation": "Ухо"
+            },
+            {
+                "kanji": "手",
+                "furigana": "て",
+                "romaji": "Te",
+                "translation": "Рука"
+            },
+            {
+                "kanji": "足",
+                "furigana": "あし",
+                "romaji": "Ashi",
+                "translation": "Нога"
+            },
+            {
+                "kanji": "心",
+                "furigana": "こころ",
+                "romaji": "Kokoro",
+                "translation": "Сердце (в значении душа)"
+            }
+        ]
+    },
+    "actions": {
+        "title": "Действия и глаголы",
+        "icon": "🏃",
+        "words": [
+            {
+                "kanji": "行く",
+                "furigana": "いく",
+                "romaji": "Iku",
+                "translation": "Идти"
+            },
+            {
+                "kanji": "来る",
+                "furigana": "くる",
+                "romaji": "Kuru",
+                "translation": "Приходить"
+            },
+            {
+                "kanji": "食べる",
+                "furigana": "たべる",
+                "romaji": "Taberu",
+                "translation": "Есть"
+            },
+            {
+                "kanji": "飲む",
+                "furigana": "のむ",
+                "romaji": "Nomu",
+                "translation": "Пить"
+            },
+            {
+                "kanji": "見る",
+                "furigana": "みる",
+                "romaji": "Miru",
+                "translation": "Смотреть"
+            },
+            {
+                "kanji": "聞く",
+                "furigana": "きく",
+                "romaji": "Kiku",
+                "translation": "Слушать"
+            },
+            {
+                "kanji": "話す",
+                "furigana": "はなす",
+                "romaji": "Hanasu",
+                "translation": "Говорить"
+            },
+            {
+                "kanji": "読む",
+                "furigana": "よむ",
+                "romaji": "Yomu",
+                "translation": "Читать"
+            },
+            {
+                "kanji": "書く",
+                "furigana": "かく",
+                "romaji": "Kaku",
+                "translation": "Писать"
+            },
+            {
+                "kanji": "勉強する",
+                "furigana": "べんきょうする",
+                "romaji": "Benkyou suru",
+                "translation": "Учиться"
+            }
+        ]
+    },
+    "adjectives": {
+        "title": "Прилагательные",
+        "icon": "📏",
+        "words": [
+            {
+                "kanji": "大きい",
+                "furigana": "おおきい",
+                "romaji": "Ookii",
+                "translation": "Большой"
+            },
+            {
+                "kanji": "小さい",
+                "furigana": "ちいさい",
+                "romaji": "Chiisai",
+                "translation": "Маленький"
+            },
+            {
+                "kanji": "新しい",
+                "furigana": "あたらしい",
+                "romaji": "Atarashii",
+                "translation": "Новый"
+            },
+            {
+                "kanji": "古い",
+                "furigana": "ふるい",
+                "romaji": "Furui",
+                "translation": "Старый"
+            },
+            {
+                "kanji": "高い",
+                "furigana": "たかい",
+                "romaji": "Takai",
+                "translation": "Высокий / Дорогой"
+            },
+            {
+                "kanji": "低い",
+                "furigana": "ひくい",
+                "romaji": "Hikui",
+                "translation": "Низкий"
+            },
+            {
+                "kanji": "安い",
+                "furigana": "やすい",
+                "romaji": "Yasui",
+                "translation": "Дешевый"
+            },
+            {
+                "kanji": "長い",
+                "furigana": "ながい",
+                "romaji": "Nagai",
+                "translation": "Длинный"
+            },
+            {
+                "kanji": "短い",
+                "furigana": "みじかい",
+                "romaji": "Mijikai",
+                "translation": "Короткий"
+            },
+            {
+                "kanji": "強い",
+                "furigana": "つよい",
+                "romaji": "Tsuyoi",
+                "translation": "Сильный"
             }
         ]
     }
