@@ -195,13 +195,36 @@
         let currentCardIndex = 0;
 
         // Загрузка данных из JSON файла
-        async function loadCategories() {
-            try {
-                console.log('Начинаем загрузку данных...');
-                const response = await fetch('./words.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+        // ... остальной код ...
+
+async function loadCategories() {
+    try {
+        console.log('Начинаем загрузку данных...');
+        const response = await fetch('/Languago/words.json'); // Исправленный путь
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('Загруженные данные:', data);
+        categories = data;
+        
+        // Проверяем количество категорий и слов
+        let totalCategories = 0;
+        let totalWords = 0;
+        for (const category in categories) {
+            totalCategories++;
+            totalWords += categories[category].words.length;
+        }
+        console.log(`Загружено категорий: ${totalCategories}, всего слов: ${totalWords}`);
+        
+        displayCategories();
+    } catch (error) {
+        console.error('Ошибка загрузки данных:', error);
+        document.querySelector('.header p').textContent = 'Ошибка загрузки данных';
+    }
+}
+
+// ... остальной код ...
                 const data = await response.json();
                 console.log('Загруженные данные:', data);
                 categories = data;
