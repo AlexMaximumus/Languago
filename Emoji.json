@@ -1,0 +1,128 @@
+{
+    "emojis": {
+        "title": "Смайлики",
+        "icon": "😊",
+        "words": [
+            {
+                "emoji": "😊",
+                "furigana": "にっこり",
+                "romaji": "Nikkori",
+                "translation": "Улыбка"
+            },
+            {
+                "emoji": "😂",
+                "furigana": "わらい",
+                "romaji": "Warai",
+                "translation": "Смех"
+            },
+            {
+                "emoji": "😍",
+                "furigana": "めっちゃすき",
+                "romaji": "Meccha suki",
+                "translation": "Очень нравится"
+            },
+            {
+                "emoji": "😡",
+                "furigana": "おこる",
+                "romaji": "Okoru",
+                "translation": "Злиться"
+            },
+            {
+                "emoji": "😢",
+                "furigana": "なみだ",
+                "romaji": "Namida",
+                "translation": "Слёзы"
+            },
+            {
+                "emoji": "😴",
+                "furigana": "ねむい",
+                "romaji": "Nemui",
+                "translation": "Сонный"
+            },
+            {
+                "emoji": "🤔",
+                "furigana": "かんがえる",
+                "romaji": "Kangaeru",
+                "translation": "Думать"
+            },
+            {
+                "emoji": "😎",
+                "furigana": "いけてる",
+                "romaji": "Iketeru",
+                "translation": "Крутой"
+            },
+            {
+                "emoji": "🥳",
+                "furigana": "おうえん",
+                "romaji": "Ouen",
+                "translation": "Праздновать"
+            },
+            {
+                "emoji": "🤯",
+                "furigana": "あたまがはれる",
+                "romaji": "Atama ga hareru",
+                "translation": "Взрыв мозга"
+            },
+            {
+                "emoji": "🤩",
+                "furigana": "ときめき",
+                "romaji": "Tokimeki",
+                "translation": "Восхищение"
+            },
+            {
+                "emoji": "😱",
+                "furigana": "びっくり",
+                "romaji": "Bikkuri",
+                "translation": "Испуг"
+            },
+            {
+                "emoji": "🥺",
+                "furigana": "おねがい",
+                "romaji": "Onegai",
+                "translation": "Просьба"
+            },
+            {
+                "emoji": "🤗",
+                "furigana": "ハグ",
+                "romaji": "Hagu",
+                "translation": "Объятие"
+            },
+            {
+                "emoji": "😇",
+                "furigana": "てんし",
+                "romaji": "Tenshi",
+                "translation": "Ангел"
+            },
+            {
+                "emoji": "🤠",
+                "furigana": "カウボーイ",
+                "romaji": "Kaubōi",
+                "translation": "Ковбой"
+            },
+            {
+                "emoji": "🥶",
+                "furigana": "さむい",
+                "romaji": "Samui",
+                "translation": "Холодно"
+            },
+            {
+                "emoji": "🤢",
+                "furigana": "きもちわるい",
+                "romaji": "Kimochi warui",
+                "translation": "Тошнота"
+            },
+            {
+                "emoji": "🤡",
+                "furigana": "ピエロ",
+                "romaji": "Piero",
+                "translation": "Клоун"
+            },
+            {
+                "emoji": "👻",
+                "furigana": "おばけ",
+                "romaji": "Obake",
+                "translation": "Привидение"
+            }
+        ]
+    }
+}
