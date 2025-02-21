@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        /* Существующие стили остаются без изменений */
+        /* Общие стили */
         body {
             font-family: 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
             margin: 0;
@@ -19,9 +19,221 @@
             background: var(--tg-theme-bg-color);
         }
 
-        /* ... все существующие стили ... */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+        }
 
-        /* Добавляем стили для загрузочного экрана */
+        /* Стили главного меню */
+        .main-menu {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        @media (min-width: 768px) {
+            .main-menu {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .main-menu-item {
+            background: var(--tg-theme-secondary-bg-color);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .main-menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .main-menu-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 767px) {
+            .main-menu-icon {
+                font-size: 64px;
+            }
+        }
+
+        .main-menu-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .main-menu-description {
+            color: var(--tg-theme-hint-color);
+            font-size: 14px;
+        }
+
+        /* Стили категорий */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+            padding: 15px 0;
+        }
+
+        .category-card {
+            background: var(--tg-theme-secondary-bg-color);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .category-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 767px) {
+            .category-icon {
+                font-size: 48px;
+            }
+        }
+
+        .category-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .category-count {
+            color: var(--tg-theme-hint-color);
+            font-size: 12px;
+        }
+
+        /* Навигация */
+        .back-button {
+            background: none;
+            border: none;
+            color: var(--tg-theme-link-color);
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px 0;
+            display: none;
+        }
+
+        /* Заголовок */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: var(--tg-theme-button-color);
+            margin-bottom: 8px;
+        }
+
+        /* Скрытые секции */
+        #words-section, #kanji-section, #test-section, #emoji-section {
+            display: none;
+        }
+
+        /* Стили для карточек */
+        .flashcard {
+            perspective: 1000px;
+            height: 300px;
+            margin: 20px auto;
+            max-width: 500px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 20px;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--tg-theme-secondary-bg-color);
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+        }
+
+        .kanji {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .furigana {
+            font-size: 24px;
+            color: var(--tg-theme-hint-color);
+        }
+
+        .meaning {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .romaji {
+            font-size: 24px;
+            color: var(--tg-theme-hint-color);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .nav-button {
+            background: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .progress {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--tg-theme-hint-color);
+        }
+
+        #flashcards-container {
+            display: none;
+        }
+
+        /* Стили для загрузочного экрана */
         #splash-screen {
             position: fixed;
             top: 0;
@@ -83,7 +295,7 @@
     </style>
 </head>
 <body>
-    <!-- Добавляем загрузочный экран -->
+    <!-- Загрузочный экран -->
     <div id="splash-screen">
         <div class="splash-content">
             <div class="splash-icon">日本語</div>
@@ -94,15 +306,66 @@
         </div>
     </div>
 
-    <!-- Весь существующий HTML код остается без изменений -->
     <div class="container">
-        <!-- ... весь ваш существующий HTML ... -->
+        <button class="back-button" onclick="showMainMenu()">← Назад</button>
+        
+        <div class="header">
+            <h1>日本語 Study</h1>
+            <p>Выберите режим изучения</p>
+        </div>
+
+        <!-- Главное меню -->
+        <div id="main-menu" class="main-menu">
+            <div class="main-menu-item" onclick="showSection('words')">
+                <div class="main-menu-icon">📚</div>
+                <div class="main-menu-title">Изучение слов</div>
+                <div class="main-menu-description">Японские слова по категориям</div>
+            </div>
+            <div class="main-menu-item" onclick="showSection('kanji')">
+                <div class="main-menu-icon">漢</div>
+                <div class="main-menu-title">Изучение кандзи</div>
+                <div class="main-menu-description">Японские иероглифы</div>
+            </div>
+            <div class="main-menu-item" onclick="showSection('test')">
+                <div class="main-menu-icon">✍️</div>
+                <div class="main-menu-title">Тестирование</div>
+                <div class="main-menu-description">Проверка знаний</div>
+            </div>
+            <div class="main-menu-item" onclick="showSection('emoji')">
+                <div class="main-menu-icon">😊</div>
+                <div class="main-menu-title">Смайлики</div>
+                <div class="main-menu-description">Изучение эмодзи</div>
+            </div>
+        </div>
+
+        <!-- Разделы -->
+        <div id="words-section">
+            <div id="categories-container" class="categories-grid"></div>
+            <div id="flashcards-container"></div>
+        </div>
+
+        <div id="kanji-section">
+            <p style="text-align: center; color: var(--tg-theme-hint-color);">
+                Раздел находится в разработке
+            </p>
+        </div>
+
+        <div id="test-section">
+            <p style="text-align: center; color: var(--tg-theme-hint-color);">
+                Раздел находится в разработке
+            </p>
+        </div>
+
+        <div id="emoji-section">
+            <div id="emoji-categories-container" class="categories-grid"></div>
+            <div id="emoji-flashcards-container"></div>
+        </div>
     </div>
+
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand();
 
-        // Все существующие переменные остаются без изменений
         let categories = null;
         let currentCategory = null;
         let currentCardIndex = 0;
@@ -111,7 +374,6 @@
         let currentEmojiCategory = null;
         let currentEmojiCardIndex = 0;
 
-        // Добавляем новую функцию для загрузочного экрана
         function hideSplashScreen() {
             const splashScreen = document.getElementById('splash-screen');
             splashScreen.style.opacity = '0';
@@ -120,76 +382,253 @@
             }, 500);
         }
 
-        // Все существующие функции остаются без изменений
         function showMainMenu() {
-            // ... существующий код ...
+            document.querySelector('.back-button').style.display = 'none';
+            document.querySelector('.header p').textContent = 'Выберите режим изучения';
+            document.getElementById('main-menu').style.display = 'grid';
+            document.getElementById('words-section').style.display = 'none';
+            document.getElementById('kanji-section').style.display = 'none';
+            document.getElementById('test-section').style.display = 'none';
+            document.getElementById('emoji-section').style.display = 'none';
+            
+            if (currentSection === 'words') {
+                document.getElementById('categories-container').style.display = 'grid';
+                document.getElementById('flashcards-container').style.display = 'none';
+            } else if (currentSection === 'emoji') {
+                document.getElementById('emoji-categories-container').style.display = 'grid';
+                document.getElementById('emoji-flashcards-container').style.display = 'none';
+            }
+            
+            currentSection = 'main';
         }
 
         function showSection(section) {
-            // ... существующий код ...
+            document.querySelector('.back-button').style.display = 'block';
+            document.getElementById('main-menu').style.display = 'none';
+            
+            document.getElementById('words-section').style.display = 'none';
+            document.getElementById('kanji-section').style.display = 'none';
+            document.getElementById('test-section').style.display = 'none';
+            document.getElementById('emoji-section').style.display = 'none';
+            
+            let title = '';
+            switch(section) {
+                case 'words': 
+                    title = 'Изучение слов';
+                    loadCategories();
+                    document.getElementById('words-section').style.display = 'block';
+                    document.getElementById('categories-container').style.display = 'grid';
+                    break;
+                case 'kanji': 
+                    title = 'Изучение кандзи';
+                    document.getElementById('kanji-section').style.display = 'block';
+                    break;
+                case 'test': 
+                    title = 'Тестирование';
+                    document.getElementById('test-section').style.display = 'block';
+                    break;
+                case 'emoji':
+                    title = 'Изучение смайликов';
+                    loadEmojiCategories();
+                    document.getElementById('emoji-section').style.display = 'block';
+                    document.getElementById('emoji-categories-container').style.display = 'grid';
+                    break;
+            }
+            document.querySelector('.header p').textContent = title;
+            
+            currentSection = section;
         }
 
-        function loadCategories() {
-            // ... существующий код ...
+        async function loadCategories() {
+            try {
+                const response = await fetch('/Languago/words.json');
+                if (!response.ok) {
+                    throw new Error(`Ошибка загрузки: ${response.status}`);
+                }
+                const data = await response.json();
+                categories = data;
+                displayCategories();
+            } catch (error) {
+                console.error('Ошибка:', error);
+                document.getElementById('categories-container').innerHTML = `
+                    <div style="text-align: center; color: var(--tg-theme-hint-color);">
+                        <p>Ошибка загрузки данных</p>
+                        <button onclick="loadCategories()" class="nav-button">Попробовать снова</button>
+                    </div>
+                `;
+            }
         }
 
         function displayCategories() {
-            // ... существующий код ...
+            const container = document.getElementById('categories-container');
+            container.innerHTML = '';
+            container.style.display = 'grid';
+
+            for (const [id, category] of Object.entries(categories)) {
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card';
+                categoryCard.onclick = () => showCategory(id);
+                categoryCard.innerHTML = `
+                    <div class="category-icon">${category.icon}</div>
+                    <div class="category-title">${category.title}</div>
+                    <div class="category-count">${category.words.length} слов</div>
+                `;
+                container.appendChild(categoryCard);
+            }
         }
 
         function showCategory(categoryId) {
-            // ... существующий код ...
+            currentCategory = categoryId;
+            currentCardIndex = 0;
+            
+            document.getElementById('categories-container').style.display = 'none';
+            document.getElementById('flashcards-container').style.display = 'block';
+            document.querySelector('.header p').textContent = `${categories[categoryId].title}`;
+            
+            updateCard();
         }
 
         function updateCard() {
-            // ... существующий код ...
+            const category = categories[currentCategory];
+            const card = category.words[currentCardIndex];
+            
+            const container = document.getElementById('flashcards-container');
+            container.innerHTML = `
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <div class="kanji">${card.kanji}</div>
+                            <div class="furigana">${card.furigana}</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="meaning">${card.translation}</div>
+                            <div class="romaji">${card.romaji}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="previousCard()">← Назад</button>
+                    <button class="nav-button" onclick="nextCard()">Вперёд →</button>
+                </div>
+                <div class="progress">
+                    Карточка ${currentCardIndex + 1} из ${category.words.length}
+                </div>
+            `;
         }
 
         function flipCard(card) {
-            // ... существующий код ...
+            card.classList.toggle('flipped');
         }
 
         function nextCard() {
-            // ... существующий код ...
+            const category = categories[currentCategory];
+            currentCardIndex = (currentCardIndex + 1) % category.words.length;
+            updateCard();
         }
 
         function previousCard() {
-            // ... существующий код ...
+            const category = categories[currentCategory];
+            currentCardIndex = (currentCardIndex - 1 + category.words.length) % category.words.length;
+            updateCard();
         }
 
-        function loadEmojiCategories() {
-            // ... существующий код ...
+        async function loadEmojiCategories() {
+            try {
+                const response = await fetch('/Languago/emoji.json');
+                if (!response.ok) {
+                    throw new Error(`Ошибка загрузки: ${response.status}`);
+                }
+                const data = await response.json();
+                emojiCategories = data;
+                displayEmojiCategories();
+            } catch (error) {
+                console.error('Ошибка:', error);
+                document.getElementById('emoji-categories-container').innerHTML = `
+                    <div style="text-align: center; color: var(--tg-theme-hint-color);">
+                        <p>Ошибка загрузки данных</p>
+                        <button onclick="loadEmojiCategories()" class="nav-button">Попробовать снова</button>
+                    </div>
+                `;
+            }
         }
 
         function displayEmojiCategories() {
-            // ... существующий код ...
+            if (!emojiCategories) {
+                return;
+            }
+            
+            const container = document.getElementById('emoji-categories-container');
+            container.innerHTML = '';
+            container.style.display = 'grid';
+
+            const categoryCard = document.createElement('div');
+            categoryCard.className = 'category-card';
+            categoryCard.onclick = () => showEmojiCategory('emojis');
+            categoryCard.innerHTML = `
+                <div class="category-icon">${emojiCategories.emojis.icon}</div>
+                <div class="category-title">${emojiCategories.emojis.title}</div>
+                <div class="category-count">${emojiCategories.emojis.words.length} эмодзи</div>
+            `;
+            container.appendChild(categoryCard);
         }
 
         function showEmojiCategory(categoryId) {
-            // ... существующий код ...
+            currentEmojiCategory = categoryId;
+            currentEmojiCardIndex = 0;
+            
+            document.getElementById('emoji-categories-container').style.display = 'none';
+            document.getElementById('emoji-flashcards-container').style.display = 'block';
+            document.querySelector('.header p').textContent = `${emojiCategories[categoryId].title}`;
+            
+            updateEmojiCard();
         }
 
         function updateEmojiCard() {
-            // ... существующий код ...
+            const category = emojiCategories.emojis;
+            const card = category.words[currentEmojiCardIndex];
+            
+            const container = document.getElementById('emoji-flashcards-container');
+            container.innerHTML = `
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <div class="kanji" style="font-size: 96px;">${card.emoji}</div>
+                            <div class="furigana">${card.furigana}</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="meaning">${card.translation}</div>
+                            <div class="romaji">${card.romaji}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="previousEmojiCard()">← Назад</button>
+                    <button class="nav-button" onclick="nextEmojiCard()">Вперёд →</button>
+                </div>
+                <div class="progress">
+                    Карточка ${currentEmojiCardIndex + 1} из ${category.words.length}
+                </div>
+            `;
         }
 
         function nextEmojiCard() {
-            // ... существующий код ...
+            const category = emojiCategories.emojis;
+            currentEmojiCardIndex = (currentEmojiCardIndex + 1) % category.words.length;
+            updateEmojiCard();
         }
 
         function previousEmojiCard() {
-            // ... существующий код ...
+            const category = emojiCategories.emojis;
+            currentEmojiCardIndex = (currentEmojiCardIndex - 1 + category.words.length) % category.words.length;
+            updateEmojiCard();
         }
 
-        // Модифицируем только инициализацию
         document.addEventListener('DOMContentLoaded', function() {
             tg.ready();
-            
-            // Добавляем задержку для показа загрузочного экрана
             setTimeout(() => {
                 hideSplashScreen();
                 showMainMenu();
-            }, 2000); // Показываем загрузочный экран 2 секунды
+            }, 2000);
         });
     </script>
 </body>
