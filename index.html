@@ -10,11 +10,226 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        /* Все существующие стили остаются без изменений */
-        /* ... existing styles ... */
+        /* Общие стили */
+        body {
+            font-family: 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-bg-color);
+        }
 
-        /* Добавляем стили для emoji-section */
-        #emoji-section {
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* Стили главного меню */
+        .main-menu {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        @media (min-width: 768px) {
+            .main-menu {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .main-menu-item {
+            background: var(--tg-theme-secondary-bg-color);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .main-menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .main-menu-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 767px) {
+            .main-menu-icon {
+                font-size: 64px;
+            }
+        }
+
+        .main-menu-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .main-menu-description {
+            color: var(--tg-theme-hint-color);
+            font-size: 14px;
+        }
+
+        /* Стили категорий */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+            padding: 15px 0;
+        }
+
+        .category-card {
+            background: var(--tg-theme-secondary-bg-color);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .category-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 767px) {
+            .category-icon {
+                font-size: 48px;
+            }
+        }
+
+        .category-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .category-count {
+            color: var(--tg-theme-hint-color);
+            font-size: 12px;
+        }
+
+        /* Навигация */
+        .back-button {
+            background: none;
+            border: none;
+            color: var(--tg-theme-link-color);
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px 0;
+            display: none;
+        }
+
+        /* Заголовок */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: var(--tg-theme-button-color);
+            margin-bottom: 8px;
+        }
+
+        /* Скрытые секции */
+        #words-section, #kanji-section, #test-section, #emoji-section {
+            display: none;
+        }
+
+        /* Стили для карточек */
+        .flashcard {
+            perspective: 1000px;
+            height: 300px;
+            margin: 20px auto;
+            max-width: 500px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 20px;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--tg-theme-secondary-bg-color);
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+        }
+
+        .kanji {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .furigana {
+            font-size: 24px;
+            color: var(--tg-theme-hint-color);
+        }
+
+        .meaning {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .romaji {
+            font-size: 24px;
+            color: var(--tg-theme-hint-color);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .nav-button {
+            background: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .progress {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--tg-theme-hint-color);
+        }
+
+        #flashcards-container {
             display: none;
         }
     </style>
@@ -80,13 +295,12 @@
         let tg = window.Telegram.WebApp;
         tg.expand();
 
-        // Существующие переменные
         let categories = null;
         let currentCategory = null;
         let currentCardIndex = 0;
         let currentSection = 'main';
-
-        // Новые переменные для эмодзи
+        
+        // Переменные для эмодзи
         let emojiCategories = null;
         let currentEmojiCategory = null;
         let currentEmojiCardIndex = 0;
@@ -131,11 +345,11 @@
                     document.getElementById('categories-container').style.display = 'grid';
                     break;
                 case 'kanji': 
-                    title = 'Изучение кандзи'; 
+                    title = 'Изучение кандзи';
                     document.getElementById('kanji-section').style.display = 'block';
                     break;
                 case 'test': 
-                    title = 'Тестирование'; 
+                    title = 'Тестирование';
                     document.getElementById('test-section').style.display = 'block';
                     break;
                 case 'emoji':
@@ -150,10 +364,107 @@
             currentSection = section;
         }
 
-        // Все существующие функции остаются без изменений
-        // ... existing functions ...
+        // Загрузка категорий
+        async function loadCategories() {
+            try {
+                const response = await fetch('/Languago/words.json');
+                if (!response.ok) {
+                    throw new Error(`Ошибка загрузки: ${response.status}`);
+                }
+                const data = await response.json();
+                categories = data;
+                displayCategories();
+            } catch (error) {
+                console.error('Ошибка:', error);
+                document.getElementById('categories-container').innerHTML = `
+                    <div style="text-align: center; color: var(--tg-theme-hint-color);">
+                        <p>Ошибка загрузки данных</p>
+                        <button onclick="loadCategories()" class="nav-button">Попробовать снова</button>
+                    </div>
+                `;
+            }
+        }
 
-        // Новые функции для работы со смайликами
+        // Отображение категорий
+        function displayCategories() {
+            const container = document.getElementById('categories-container');
+            container.innerHTML = '';
+            container.style.display = 'grid';
+
+            for (const [id, category] of Object.entries(categories)) {
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card';
+                categoryCard.onclick = () => showCategory(id);
+                categoryCard.innerHTML = `
+                    <div class="category-icon">${category.icon}</div>
+                    <div class="category-title">${category.title}</div>
+                    <div class="category-count">${category.words.length} слов</div>
+                `;
+                container.appendChild(categoryCard);
+            }
+        }
+
+        // Показать категорию
+        function showCategory(categoryId) {
+            currentCategory = categoryId;
+            currentCardIndex = 0;
+            
+            document.getElementById('categories-container').style.display = 'none';
+            document.getElementById('flashcards-container').style.display = 'block';
+            document.querySelector('.header p').textContent = `${categories[categoryId].title}`;
+            
+            updateCard();
+        }
+
+        // Обновить карточку
+        function updateCard() {
+            const category = categories[currentCategory];
+            const card = category.words[currentCardIndex];
+            
+            const container = document.getElementById('flashcards-container');
+            container.innerHTML = `
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <div class="kanji">${card.kanji}</div>
+                            <div class="furigana">${card.furigana}</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="meaning">${card.translation}</div>
+                            <div class="romaji">${card.romaji}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="previousCard()">← Назад</button>
+                    <button class="nav-button" onclick="nextCard()">Вперёд →</button>
+                </div>
+                <div class="progress">
+                    Карточка ${currentCardIndex + 1} из ${category.words.length}
+                </div>
+            `;
+        }
+
+        // Перевернуть карточку
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        // Следующая карточка
+        function nextCard() {
+            const category = categories[currentCategory];
+            currentCardIndex = (currentCardIndex + 1) % category.words.length;
+            updateCard();
+        }
+
+        // Предыдущая карточка
+        function previousCard() {
+            const category = categories[currentCategory];
+            currentCardIndex = (currentCardIndex - 1 + category.words.length) % category.words.length;
+            updateCard();
+        }
+
+        // Функции для работы с эмодзи
         async function loadEmojiCategories() {
             try {
                 const response = await fetch('/Languago/emoji.json');
@@ -175,21 +486,23 @@
         }
 
         function displayEmojiCategories() {
+            if (!emojiCategories) {
+                return;
+            }
+            
             const container = document.getElementById('emoji-categories-container');
             container.innerHTML = '';
             container.style.display = 'grid';
 
-            for (const [id, category] of Object.entries(emojiCategories)) {
-                const categoryCard = document.createElement('div');
-                categoryCard.className = 'category-card';
-                categoryCard.onclick = () => showEmojiCategory(id);
-                categoryCard.innerHTML = `
-                    <div class="category-icon">${category.icon}</div>
-                    <div class="category-title">${category.title}</div>
-                    <div class="category-count">${category.emojis.length} эмодзи</div>
-                `;
-                container.appendChild(categoryCard);
-            }
+            const categoryCard = document.createElement('div');
+            categoryCard.className = 'category-card';
+            categoryCard.onclick = () => showEmojiCategory('emojis');
+            categoryCard.innerHTML = `
+                <div class="category-icon">${emojiCategories.emojis.icon}</div>
+                <div class="category-title">${emojiCategories.emojis.title}</div>
+                <div class="category-count">${emojiCategories.emojis.words.length} эмодзи</div>
+            `;
+            container.appendChild(categoryCard);
         }
 
         function showEmojiCategory(categoryId) {
@@ -204,8 +517,8 @@
         }
 
         function updateEmojiCard() {
-            const category = emojiCategories[currentEmojiCategory];
-            const card = category.emojis[currentEmojiCardIndex];
+            const category = emojiCategories.emojis;
+            const card = category.words[currentEmojiCardIndex];
             
             const container = document.getElementById('emoji-flashcards-container');
             container.innerHTML = `
@@ -213,10 +526,11 @@
                     <div class="flashcard-inner">
                         <div class="flashcard-front">
                             <div class="kanji" style="font-size: 96px;">${card.emoji}</div>
+                            <div class="furigana">${card.furigana}</div>
                         </div>
                         <div class="flashcard-back">
-                            <div class="meaning">${card.name}</div>
-                            <div class="romaji">${card.description}</div>
+                            <div class="meaning">${card.translation}</div>
+                            <div class="romaji">${card.romaji}</div>
                         </div>
                     </div>
                 </div>
@@ -225,20 +539,20 @@
                     <button class="nav-button" onclick="nextEmojiCard()">Вперёд →</button>
                 </div>
                 <div class="progress">
-                    Карточка ${currentEmojiCardIndex + 1} из ${category.emojis.length}
+                    Карточка ${currentEmojiCardIndex + 1} из ${category.words.length}
                 </div>
             `;
         }
 
         function nextEmojiCard() {
-            const category = emojiCategories[currentEmojiCategory];
-            currentEmojiCardIndex = (currentEmojiCardIndex + 1) % category.emojis.length;
+            const category = emojiCategories.emojis;
+            currentEmojiCardIndex = (currentEmojiCardIndex + 1) % category.words.length;
             updateEmojiCard();
         }
 
         function previousEmojiCard() {
-            const category = emojiCategories[currentEmojiCategory];
-            currentEmojiCardIndex = (currentEmojiCardIndex - 1 + category.emojis.length) % category.emojis.length;
+            const category = emojiCategories.emojis;
+            currentEmojiCardIndex = (currentEmojiCardIndex - 1 + category.words.length) % category.words.length;
             updateEmojiCard();
         }
 
