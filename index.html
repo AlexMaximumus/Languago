@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        /* Все существующие стили остаются без изменений */
+        /* Общие стили */
         body {
             font-family: 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
             margin: 0;
@@ -465,7 +465,6 @@
             <div id="emoji-flashcards-container"></div>
         </div>
     </div>
-
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand();
@@ -477,8 +476,6 @@
         let emojiCategories = null;
         let currentEmojiCategory = null;
         let currentEmojiCardIndex = 0;
-
-        // Переменные для тестирования
         let testQuestions = null;
         let currentQuestionIndex = 0;
         let correctAnswers = 0;
@@ -553,60 +550,188 @@
             currentSection = section;
         }
 
-        // Существующие функции для слов и эмодзи остаются без изменений
         async function loadCategories() {
-            // ... существующий код ...
+            try {
+                const response = await fetch('/Languago/words.json');
+                if (!response.ok) {
+                    throw new Error(`Ошибка загрузки: ${response.status}`);
+                }
+                const data = await response.json();
+                categories = data;
+                displayCategories();
+            } catch (error) {
+                console.error('Ошибка:', error);
+                document.getElementById('categories-container').innerHTML = `
+                    <div style="text-align: center; color: var(--tg-theme-hint-color);">
+                        <p>Ошибка загрузки данных</p>
+                        <button onclick="loadCategories()" class="nav-button">Попробовать снова</button>
+                    </div>
+                `;
+            }
         }
 
         function displayCategories() {
-            // ... существующий код ...
+            const container = document.getElementById('categories-container');
+            container.innerHTML = '';
+            container.style.display = 'grid';
+
+            for (const [id, category] of Object.entries(categories)) {
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card';
+                categoryCard.onclick = () => showCategory(id);
+                categoryCard.innerHTML = `
+                    <div class="category-icon">${category.icon}</div>
+                    <div class="category-title">${category.title}</div>
+                    <div class="category-count">${category.words.length} слов</div>
+                `;
+                container.appendChild(categoryCard);
+            }
         }
 
         function showCategory(categoryId) {
-            // ... существующий код ...
+            currentCategory = categoryId;
+            currentCardIndex = 0;
+            
+            document.getElementById('categories-container').style.display = 'none';
+            document.getElementById('flashcards-container').style.display = 'block';
+            document.querySelector('.header p').textContent = `${categories[categoryId].title}`;
+            
+            updateCard();
         }
 
         function updateCard() {
-            // ... существующий код ...
+            const category = categories[currentCategory];
+            const card = category.words[currentCardIndex];
+            
+            const container = document.getElementById('flashcards-container');
+            container.innerHTML = `
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <div class="kanji">${card.kanji}</div>
+                            <div class="furigana">${card.furigana}</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="meaning">${card.translation}</div>
+                            <div class="romaji">${card.romaji}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="previousCard()">← Назад</button>
+                    <button class="nav-button" onclick="nextCard()">Вперёд →</button>
+                </div>
+                <div class="progress">
+                    Карточка ${currentCardIndex + 1} из ${category.words.length}
+                </div>
+            `;
         }
 
         function flipCard(card) {
-            // ... существующий код ...
+            card.classList.toggle('flipped');
         }
 
         function nextCard() {
-            // ... существующий код ...
+            const category = categories[currentCategory];
+            currentCardIndex = (currentCardIndex + 1) % category.words.length;
+            updateCard();
         }
 
         function previousCard() {
-            // ... существующий код ...
+            const category = categories[currentCategory];
+            currentCardIndex = (currentCardIndex - 1 + category.words.length) % category.words.length;
+            updateCard();
         }
 
         async function loadEmojiCategories() {
-            // ... существующий код ...
+            try {
+                const response = await fetch('/Languago/emoji.json');
+                if (!response.ok) {
+                    throw new Error(`Ошибка загрузки: ${response.status}`);
+                }
+                const data = await response.json();
+                emojiCategories = data;
+                displayEmojiCategories();
+            } catch (error) {
+                console.error('Ошибка:', error);
+                document.getElementById('emoji-categories-container').innerHTML = `
+                    <div style="text-align: center; color: var(--tg-theme-hint-color);">
+                        <p>Ошибка загрузки данных</p>
+                        <button onclick="loadEmojiCategories()" class="nav-button">Попробовать снова</button>
+                    </div>
+                `;
+            }
         }
 
         function displayEmojiCategories() {
-            // ... существующий код ...
+            if (!emojiCategories) return;
+            
+            const container = document.getElementById('emoji-categories-container');
+            container.innerHTML = '';
+            container.style.display = 'grid';
+
+            const categoryCard = document.createElement('div');
+            categoryCard.className = 'category-card';
+            categoryCard.onclick = () => showEmojiCategory('emojis');
+            categoryCard.innerHTML = `
+                <div class="category-icon">${emojiCategories.emojis.icon}</div>
+                <div class="category-title">${emojiCategories.emojis.title}</div>
+                <div class="category-count">${emojiCategories.emojis.words.length} эмодзи</div>
+            `;
+            container.appendChild(categoryCard);
         }
 
         function showEmojiCategory(categoryId) {
-            // ... существующий код ...
+            currentEmojiCategory = categoryId;
+            currentEmojiCardIndex = 0;
+            
+            document.getElementById('emoji-categories-container').style.display = 'none';
+            document.getElementById('emoji-flashcards-container').style.display = 'block';
+            document.querySelector('.header p').textContent = `${emojiCategories[categoryId].title}`;
+            
+            updateEmojiCard();
         }
 
         function updateEmojiCard() {
-            // ... существующий код ...
+            const category = emojiCategories.emojis;
+            const card = category.words[currentEmojiCardIndex];
+            
+            const container = document.getElementById('emoji-flashcards-container');
+            container.innerHTML = `
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <div class="kanji" style="font-size: 96px;">${card.emoji}</div>
+                            <div class="furigana">${card.furigana}</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="meaning">${card.translation}</div>
+                            <div class="romaji">${card.romaji}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="nav-button" onclick="previousEmojiCard()">← Назад</button>
+                    <button class="nav-button" onclick="nextEmojiCard()">Вперёд →</button>
+                </div>
+                <div class="progress">
+                    Карточка ${currentEmojiCardIndex + 1} из ${category.words.length}
+                </div>
+            `;
         }
 
         function nextEmojiCard() {
-            // ... существующий код ...
+            const category = emojiCategories.emojis;
+            currentEmojiCardIndex = (currentEmojiCardIndex + 1) % category.words.length;
+            updateEmojiCard();
         }
 
         function previousEmojiCard() {
-            // ... существующий код ...
+            const category = emojiCategories.emojis;
+            currentEmojiCardIndex = (currentEmojiCardIndex - 1 + category.words.length) % category.words.length;
+            updateEmojiCard();
         }
 
-        // Новые функции для тестирования
         async function loadTest() {
             try {
                 const response = await fetch('/Languago/test.json');
