@@ -9,12 +9,12 @@ let wordsData = null;
 // Загрузка слов из JSON файла
 async function loadWords() {
     try {
-        const response = await fetch('../data/words.json');
+        const response = await fetch('/Language/data/words.json');  // Изменен путь для GitHub Pages
         if (!response.ok) {
             throw new Error('Ошибка загрузки слов');
         }
         wordsData = await response.json();
-        displayCategories(); // Заменяем updateCategoryCounts на displayCategories
+        displayCategories();
     } catch (error) {
         console.error('Ошибка:', error);
         wordsData = {
@@ -31,11 +31,10 @@ async function loadWords() {
                 "words": []
             }
         };
-        displayCategories(); // Здесь тоже
+        displayCategories();
     }
 }
 
-// Новая функция для отображения категорий
 function displayCategories() {
     const container = document.getElementById('categories-container');
     container.innerHTML = '';
@@ -52,17 +51,6 @@ function displayCategories() {
         `;
         
         container.appendChild(categoryCard);
-    }
-}
-
-// Оставляем эту функцию для обратной совместимости
-function updateCategoryCounts() {
-    for (const category in wordsData) {
-        const count = wordsData[category].words.length;
-        const countElement = document.querySelector(`[onclick="selectCategory('${category}')"] .category-count`);
-        if (countElement) {
-            countElement.textContent = `${count} слов`;
-        }
     }
 }
 
