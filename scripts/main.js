@@ -5,33 +5,78 @@ let currentCategory = null;
 let currentWords = [];
 let currentWordIndex = 0;
 let wordsData = null;
+let currentSection = 'main-menu'; // Добавляем отслеживание текущего раздела
 
 // Загрузка слов из JSON файла
-async function loadWords() {
+async function loadWords(type) {
     try {
-        const response = await fetch('data/words.json');  // Изменен путь для GitHub Pages
+        let response;
+        switch(type) {
+            case 'words':
+                response = await fetch('data/words.json');
+                break;
+            case 'kanji':
+                response = await fetch('data/kanji.json');
+                break;
+            case 'emoji':
+                response = await fetch('data/emoji.json');
+                break;
+            case 'test':
+                response = await fetch('data/test.json');
+                break;
+            default:
+                throw new Error('Неизвестный тип данных');
+        }
+
         if (!response.ok) {
-            throw new Error('Ошибка загрузки слов');
+            throw new Error('Ошибка загрузки данных');
         }
         wordsData = await response.json();
         displayCategories();
     } catch (error) {
         console.error('Ошибка:', error);
         wordsData = {
-            "nature": {
-                "title": "Природа",
-                "words": []
-            },
-            "food": {
-                "title": "Еда",
-                "words": []
-            },
-            "communication": {
-                "title": "Общение",
+            "default": {
+                "title": "Категория",
                 "words": []
             }
         };
         displayCategories();
+    }
+}
+
+function showMainMenu() {
+    currentSection = 'main-menu';
+    document.getElementById('main-menu').style.display = 'grid';
+    document.getElementById('categories-container').style.display = 'none';
+    document.getElementById('flashcards-container').style.display = 'none';
+    document.querySelector('.back-button').style.display = 'none';
+    document.querySelector('.header p').textContent = 'Выберите режим изучения';
+}
+
+function showSection(section) {
+    currentSection = section;
+    document.getElementById('main-menu').style.display = 'none';
+    document.getElementById('categories-container').style.display = 'grid';
+    document.querySelector('.back-button').style.display = 'block';
+    
+    switch(section) {
+        case 'words':
+            document.querySelector('.header p').textContent = 'Изучение слов';
+            loadWords('words');
+            break;
+        case 'kanji':
+            document.querySelector('.header p').textContent = 'Изучение кандзи';
+            loadWords('kanji');
+            break;
+        case 'emoji':
+            document.querySelector('.header p').textContent = 'Изучение эмодзи';
+            loadWords('emoji');
+            break;
+        case 'test':
+            document.querySelector('.header p').textContent = 'Тестирование';
+            loadWords('test');
+            break;
     }
 }
 
@@ -95,10 +140,17 @@ function updateFlashcard() {
 }
 
 function showCategories() {
-    document.getElementById('categories-container').style.display = 'grid';
-    document.getElementById('flashcards-container').style.display = 'none';
-    document.querySelector('.back-button').style.display = 'none';
-    document.querySelector('.header p').textContent = 'Выберите категорию для изучения';
+    if (currentSection === 'main-menu') return;
+    
+    if (document.getElementById('flashcards-container').style.display === 'block') {
+        // Если открыты карточки, возвращаемся к категориям
+        document.getElementById('categories-container').style.display = 'grid';
+        document.getElementById('flashcards-container').style.display = 'none';
+        document.querySelector('.header p').textContent = 'Выберите категорию для изучения';
+    } else {
+        // Если открыты категории, возвращаемся в главное меню
+        showMainMenu();
+    }
 }
 
 function flipCard(card) {
@@ -119,5 +171,5 @@ function previousCard() {
 
 document.addEventListener('DOMContentLoaded', function() {
     tg.ready();
-    loadWords();
+    showMainMenu(); // Показываем главное меню при загрузке
 });
