@@ -1,868 +1,536 @@
 {
-    "kanji": [
-        {
-            "character": "日",
-            "onyomi": "ニチ, ジツ",
-            "kunyomi": "ひ, -び, -か",
-            "meaning": "день, солнце"
-        },
-        {
-            "character": "一",
-            "onyomi": "イチ, イツ",
-            "kunyomi": "ひと-, ひと.つ",
-            "meaning": "один"
-        },
-        {
-            "character": "二",
-            "onyomi": "ニ, ジ",
-            "kunyomi": "ふた, ふた.つ",
-            "meaning": "два"
-        },
-        {
-            "character": "三",
-            "onyomi": "サン, ゾウ",
-            "kunyomi": "み, み.つ",
-            "meaning": "три"
-        },
-        {
-            "character": "四",
-            "onyomi": "シ",
-            "kunyomi": "よ, よ.つ, よん",
-            "meaning": "четыре"
-        },
-        {
-            "character": "五",
-            "onyomi": "ゴ",
-            "kunyomi": "いつ, いつ.つ",
-            "meaning": "пять"
-        },
-        {
-            "character": "六",
-            "onyomi": "ロク, リク",
-            "kunyomi": "む, む.つ, むい",
-            "meaning": "шесть"
-        },
-        {
-            "character": "七",
-            "onyomi": "シチ",
-            "kunyomi": "なな, なな.つ, なの",
-            "meaning": "семь"
-        },
-        {
-            "character": "八",
-            "onyomi": "ハチ",
-            "kunyomi": "や, や.つ, よう",
-            "meaning": "восемь"
-        },
-        {
-            "character": "九",
-            "onyomi": "キュウ, ク",
-            "kunyomi": "ここの, ここの.つ",
-            "meaning": "девять"
-        },
-        {
-            "character": "十",
-            "onyomi": "ジュウ, ジッ",
-            "kunyomi": "とお, と",
-            "meaning": "десять"
-        },
-        {
-            "character": "月",
-            "onyomi": "ゲツ, ガツ",
-            "kunyomi": "つき",
-            "meaning": "месяц, луна"
-        },
-        {
-            "character": "火",
-            "onyomi": "カ",
-            "kunyomi": "ひ, -び, ほ-",
-            "meaning": "огонь"
-        },
-        {
-            "character": "水",
-            "onyomi": "スイ",
-            "kunyomi": "みず, みず-",
-            "meaning": "вода"
-        },
-        {
-            "character": "木",
-            "onyomi": "モク, ボク",
-            "kunyomi": "き, こ-",
-            "meaning": "дерево"
-        },
-        {
-            "character": "金",
-            "onyomi": "キン, コン",
-            "kunyomi": "かね, かな-",
-            "meaning": "золото, металл"
-        },
-        {
-            "character": "土",
-            "onyomi": "ド, ト",
-            "kunyomi": "つち",
-            "meaning": "земля"
-        },
-        {
-            "character": "人",
-            "onyomi": "ジン, ニン",
-            "kunyomi": "ひと",
-            "meaning": "человек"
-        },
-        {
-            "character": "男",
-            "onyomi": "ダン, ナン",
-            "kunyomi": "おとこ",
-            "meaning": "мужчина"
-        },
-        {
-            "character": "女",
-            "onyomi": "ジョ, ニョ",
-            "kunyomi": "おんな, め",
-            "meaning": "женщина"
-        },
-        {
-            "character": "子",
-            "onyomi": "シ, ス",
-            "kunyomi": "こ, -こ",
-            "meaning": "ребенок"
-        },
-        {
-            "character": "父",
-            "onyomi": "フ",
-            "kunyomi": "ちち",
-            "meaning": "отец"
-        },
-        {
-            "character": "母",
-            "onyomi": "ボ",
-            "kunyomi": "はは",
-            "meaning": "мать"
-        },
-        {
-            "character": "友",
-            "onyomi": "ユウ",
-            "kunyomi": "とも",
-            "meaning": "друг"
-        },
-        {
-            "character": "口",
-            "onyomi": "コウ, ク",
-            "kunyomi": "くち",
-            "meaning": "рот"
-        },
-        {
-            "character": "目",
-            "onyomi": "モク, ボク",
-            "kunyomi": "め, -め",
-            "meaning": "глаз"
-        },
-        {
-            "character": "耳",
-            "onyomi": "ジ",
-            "kunyomi": "みみ",
-            "meaning": "ухо"
-        },
-        {
-            "character": "手",
-            "onyomi": "シュ",
-            "kunyomi": "て, た-",
-            "meaning": "рука"
-        },
-        {
-            "character": "足",
-            "onyomi": "ソク",
-            "kunyomi": "あし, た.りる",
-            "meaning": "нога"
-        },
-        {
-            "character": "山",
-            "onyomi": "サン, セン",
-            "kunyomi": "やま",
-            "meaning": "гора"
-        },
-        {
-            "character": "川",
-            "onyomi": "セン",
-            "kunyomi": "かわ",
-            "meaning": "река"
-        },
-        {
-            "character": "田",
-            "onyomi": "デン",
-            "kunyomi": "た",
-            "meaning": "рисовое поле"
-        },
-        {
-            "character": "天",
-            "onyomi": "テン",
-            "kunyomi": "あま, あめ",
-            "meaning": "небо"
-        },
-        {
-            "character": "中",
-            "onyomi": "チュウ",
-            "kunyomi": "なか, うち",
-            "meaning": "середина"
-        },
-        {
-            "character": "上",
-            "onyomi": "ジョウ, ショウ",
-            "kunyomi": "うえ, あ.げる",
-            "meaning": "верх"
-        },
-        {
-            "character": "下",
-            "onyomi": "カ, ゲ",
-            "kunyomi": "した, さ.げる",
-            "meaning": "низ"
-        },
-        {
-            "character": "左",
-            "onyomi": "サ, シャ",
-            "kunyomi": "ひだり",
-            "meaning": "лево"
-        },
-        {
-            "character": "右",
-            "onyomi": "ウ, ユウ",
-            "kunyomi": "みぎ",
-            "meaning": "право"
-        },
-        {
-            "character": "大",
-            "onyomi": "ダイ, タイ",
-            "kunyomi": "おお, おお.きい",
-            "meaning": "большой"
-        },
-        {
-            "character": "小",
-            "onyomi": "ショウ",
-            "kunyomi": "ちい.さい, こ-",
-            "meaning": "маленький"
-        },
-        {
-            "character": "本",
-            "onyomi": "ホン",
-            "kunyomi": "もと",
-            "meaning": "книга, основа"
-        },
-        {
-            "character": "休",
-            "onyomi": "キュウ",
-            "kunyomi": "やす.む, やす.まる",
-            "meaning": "отдых"
-        },
-        {
-            "character": "行",
-            "onyomi": "コウ, ギョウ",
-            "kunyomi": "い.く, おこな.う",
-            "meaning": "идти, делать"
-        },
-        {
-            "character": "見",
-            "onyomi": "ケン",
-            "kunyomi": "み.る, み.える",
-            "meaning": "видеть"
-        },
-        {
-            "character": "学",
-            "onyomi": "ガク",
-            "kunyomi": "まな.ぶ",
-            "meaning": "учиться"
-        },
-        {
-            "character": "校",
-            "onyomi": "コウ",
-            "kunyomi": "こう",
-            "meaning": "школа"
-        },
-        {
-            "character": "生",
-            "onyomi": "セイ, ショウ",
-            "kunyomi": "い.きる, う.まれる",
-            "meaning": "жизнь, рождение"
-        },
-        {
-            "character": "先",
-            "onyomi": "セン",
-            "kunyomi": "さき, ま.ず",
-            "meaning": "прежде, вперед"
-        },
-        {
-            "character": "名",
-            "onyomi": "メイ, ミョウ",
-            "kunyomi": "な, -な",
-            "meaning": "имя"
-        },
-        {
-            "character": "字",
-            "onyomi": "ジ",
-            "kunyomi": "あざ, あざな",
-            "meaning": "символ, иероглиф"
-        },
-        {
-            "character": "時",
-            "onyomi": "ジ",
-            "kunyomi": "とき, -どき",
-            "meaning": "время"
-        },
-        {
-            "character": "間",
-            "onyomi": "カン, ケン",
-            "kunyomi": "あいだ, ま",
-            "meaning": "промежуток"
-        },
-        {
-            "character": "毎",
-            "onyomi": "マイ",
-            "kunyomi": "ごと, つね",
-            "meaning": "каждый"
-        },
-        {
-            "character": "年",
-            "onyomi": "ネン",
-            "kunyomi": "とし, ねん",
-            "meaning": "год"
-        },
-        {
-            "character": "午",
-            "onyomi": "ゴ",
-            "kunyomi": "うま",
-            "meaning": "полдень"
-        },
-        {
-            "character": "前",
-            "onyomi": "ゼン",
-            "kunyomi": "まえ, さき",
-            "meaning": "перед"
-        },
-        {
-            "character": "後",
-            "onyomi": "ゴ, コウ",
-            "kunyomi": "うし.ろ, あと",
-            "meaning": "после"
-        },
-        {
-            "character": "来",
-            "onyomi": "ライ",
-            "kunyomi": "く.る, きた.る",
-            "meaning": "приходить"
-        },
-        {
-            "character": "気",
-            "onyomi": "キ, ケ",
-            "kunyomi": "き",
-            "meaning": "дух, энергия"
-        },
-        {
-            "character": "何",
-            "onyomi": "カ",
-            "kunyomi": "なに, なん",
-            "meaning": "что"
-        },
-        {
-            "character": "食",
-            "onyomi": "ショク, ジキ",
-            "kunyomi": "た.べる, く.う",
-            "meaning": "еда"
-        },
-        {
-            "character": "飲",
-            "onyomi": "イン",
-            "kunyomi": "の.む",
-            "meaning": "пить"
-        },
-        {
-            "character": "車",
-            "onyomi": "シャ",
-            "kunyomi": "くるま",
-            "meaning": "машина"
-        },
-        {
-            "character": "電",
-            "onyomi": "デン",
-            "kunyomi": "でん",
-            "meaning": "электричество"
-        },
-        {
-            "character": "話",
-            "onyomi": "ワ",
-            "kunyomi": "はな.す, はなし",
-            "meaning": "разговор"
-        },
-        {
-            "character": "聞",
-            "onyomi": "ブン, モン",
-            "kunyomi": "き.く, き.こえる",
-            "meaning": "слышать"
-        },
-        {
-            "character": "読",
-            "onyomi": "ドク, トク",
-            "kunyomi": "よ.む",
-            "meaning": "читать"
-        },
-        {
-            "character": "書",
-            "onyomi": "ショ",
-            "kunyomi": "か.く",
-            "meaning": "писать"
-        },
-        {
-            "character": "高",
-            "onyomi": "コウ",
-            "kunyomi": "たか.い, たか",
-            "meaning": "высокий"
-        },
-        {
-            "character": "長",
-            "onyomi": "チョウ",
-            "kunyomi": "なが.い, おさ",
-            "meaning": "длинный"
-        },
-        {
-            "character": "半",
-            "onyomi": "ハン",
-            "kunyomi": "なか.ば",
-            "meaning": "половина"
-        },
-        {
-            "character": "分",
-            "onyomi": "ブン, フン",
-            "kunyomi": "わ.ける, わ.かる",
-            "meaning": "понимать, делить"
-        },
-        {
-            "character": "間",
-            "onyomi": "カン, ケン",
-            "kunyomi": "あいだ, ま",
-            "meaning": "промежуток"
-        },
-        {
-            "character": "今",
-            "onyomi": "コン, キン",
-            "kunyomi": "いま",
-            "meaning": "сейчас"
-        },
-        {
-            "character": "新",
-            "onyomi": "シン",
-            "kunyomi": "あたら.しい, あら.た",
-            "meaning": "новый"
-        },
-        {
-            "character": "古",
-            "onyomi": "コ",
-            "kunyomi": "ふる.い, ふる-",
-            "meaning": "старый"
-        },
-        {
-            "character": "安",
-            "onyomi": "アン",
-            "kunyomi": "やす.い",
-            "meaning": "дешевый, спокойный"
-        },
-        {
-            "character": "社",
-            "onyomi": "シャ",
-            "kunyomi": "やしろ",
-            "meaning": "компания, храм"
-        },
-        {
-            "character": "外",
-            "onyomi": "ガイ, ゲ",
-            "kunyomi": "そと, はず.す",
-            "meaning": "снаружи"
-        },
-        {
-            "character": "国",
-            "onyomi": "コク",
-            "kunyomi": "くに",
-            "meaning": "страна"
-        },
-        {
-            "character": "東",
-            "onyomi": "トウ",
-            "kunyomi": "ひがし",
-            "meaning": "восток"
-        },
-        {
-            "character": "西",
-            "onyomi": "セイ, サイ",
-            "kunyomi": "にし",
-            "meaning": "запад"
-        },
-        {
-            "character": "南",
-            "onyomi": "ナン",
-            "kunyomi": "みなみ",
-            "meaning": "юг"
-        },
-        {
-            "character": "北",
-            "onyomi": "ホク",
-            "kunyomi": "きた",
-            "meaning": "север"
-        },
-        {
-            "character": "入",
-            "onyomi": "ニュウ",
-            "kunyomi": "はい.る, い.れる",
-            "meaning": "входить"
-        },
-        {
-            "character": "出",
-            "onyomi": "シュツ, スイ",
-            "kunyomi": "で.る, だ.す",
-            "meaning": "выходить"
-        },
-        {
-            "character": "立",
-            "onyomi": "リツ, リュウ",
-            "kunyomi": "た.つ, た.てる",
-            "meaning": "стоять"
-        },
-        {
-            "character": "会",
-            "onyomi": "カイ, エ",
-            "kunyomi": "あ.う, あ.わせる",
-            "meaning": "встреча"
-        },
-        {
-            "character": "同",
-            "onyomi": "ドウ",
-            "kunyomi": "おな.じ",
-            "meaning": "одинаковый"
-        },
-        {
-            "character": "自",
-            "onyomi": "ジ, シ",
-            "kunyomi": "みずか.ら",
-            "meaning": "сам"
-        },
-        {
-            "character": "正",
-            "onyomi": "セイ, ショウ",
-            "kunyomi": "ただ.しい, まさ",
-            "meaning": "правильный"
-        },
-        {
-            "character": "円",
-            "onyomi": "エン",
-            "kunyomi": "まる.い",
-            "meaning": "круг, йена"
-        },
-        {
-            "character": "話",
-            "onyomi": "ワ",
-            "kunyomi": "はな.す, はなし",
-            "meaning": "разговор"
-        },
-        {
-            "character": "聞",
-            "onyomi": "ブン, モン",
-            "kunyomi": "き.く, き.こえる",
-            "meaning": "слышать"
-        },
-        {
-            "character": "行",
-            "onyomi": "コウ, ギョウ",
-            "kunyomi": "い.く, おこな.う",
-            "meaning": "идти, делать"
-        },
-        {
-            "character": "見",
-            "onyomi": "ケン",
-            "kunyomi": "み.る, み.える",
-            "meaning": "видеть"
-        },
-        {
-            "character": "学",
-            "onyomi": "ガク",
-            "kunyomi": "まな.ぶ",
-            "meaning": "учиться"
-        },
-        {
-            "character": "校",
-            "onyomi": "コウ",
-            "kunyomi": "こう",
-            "meaning": "школа"
-        },
-        {
-            "character": "生",
-            "onyomi": "セイ, ショウ",
-            "kunyomi": "い.きる, う.まれる",
-            "meaning": "жизнь, рождение"
-        },
-        {
-            "character": "先",
-            "onyomi": "セン",
-            "kunyomi": "さき, ま.ず",
-            "meaning": "прежде, вперед"
-        },
-        {
-            "character": "名",
-            "onyomi": "メイ, ミョウ",
-            "kunyomi": "な, -な",
-            "meaning": "имя"
-        },
-        {
-            "character": "字",
-            "onyomi": "ジ",
-            "kunyomi": "あざ, あざな",
-            "meaning": "символ, иероглиф"
-        },
-        {
-            "character": "時",
-            "onyomi": "ジ",
-            "kunyomi": "とき, -どき",
-            "meaning": "время"
-        },
-        {
-            "character": "間",
-            "onyomi": "カン, ケン",
-            "kunyomi": "あいだ, ま",
-            "meaning": "промежуток"
-        },
-        {
-            "character": "毎",
-            "onyomi": "マイ",
-            "kunyomi": "ごと, つね",
-            "meaning": "каждый"
-        },
-        {
-            "character": "年",
-            "onyomi": "ネン",
-            "kunyomi": "とし, ねん",
-            "meaning": "год"
-        },
-        {
-            "character": "午",
-            "onyomi": "ゴ",
-            "kunyomi": "うま",
-            "meaning": "полдень"
-        },
-        {
-            "character": "前",
-            "onyomi": "ゼン",
-            "kunyomi": "まえ, さき",
-            "meaning": "перед"
-        },
-        {
-            "character": "後",
-            "onyomi": "ゴ, コウ",
-            "kunyomi": "うし.ろ, あと",
-            "meaning": "после"
-        },
-        {
-            "character": "来",
-            "onyomi": "ライ",
-            "kunyomi": "く.る, きた.る",
-            "meaning": "приходить"
-        },
-        {
-            "character": "気",
-            "onyomi": "キ, ケ",
-            "kunyomi": "き",
-            "meaning": "дух, энергия"
-        },
-        {
-            "character": "何",
-            "onyomi": "カ",
-            "kunyomi": "なに, なん",
-            "meaning": "что"
-        },
-        {
-            "character": "食",
-            "onyomi": "ショク, ジキ",
-            "kunyomi": "た.べる, く.う",
-            "meaning": "еда"
-        },
-        {
-            "character": "飲",
-            "onyomi": "イン",
-            "kunyomi": "の.む",
-            "meaning": "пить"
-        },
-        {
-            "character": "車",
-            "onyomi": "シャ",
-            "kunyomi": "くるま",
-            "meaning": "машина"
-        },
-        {
-            "character": "電",
-            "onyomi": "デン",
-            "kunyomi": "でん",
-            "meaning": "электричество"
-        },
-        {
-            "character": "話",
-            "onyomi": "ワ",
-            "kunyomi": "はな.す, はなし",
-            "meaning": "разговор"
-        },
-        {
-            "character": "聞",
-            "onyomi": "ブン, モン",
-            "kunyomi": "き.く, き.こえる",
-            "meaning": "слышать"
-        },
-        {
-            "character": "読",
-            "onyomi": "ドク, トク",
-            "kunyomi": "よ.む",
-            "meaning": "читать"
-        },
-        {
-            "character": "書",
-            "onyomi": "ショ",
-            "kunyomi": "か.く",
-            "meaning": "писать"
-        },
-        {
-            "character": "高",
-            "onyomi": "コウ",
-            "kunyomi": "たか.い, たか",
-            "meaning": "высокий"
-        },
-        {
-            "character": "長",
-            "onyomi": "チョウ",
-            "kunyomi": "なが.い, おさ",
-            "meaning": "длинный"
-        },
-        {
-            "character": "半",
-            "onyomi": "ハン",
-            "kunyomi": "なか.ば",
-            "meaning": "половина"
-        },
-        {
-            "character": "分",
-            "onyomi": "ブン, フン",
-            "kunyomi": "わ.ける, わ.かる",
-            "meaning": "понимать, делить"
-        },
-        {
-            "character": "間",
-            "onyomi": "カン, ケン",
-            "kunyomi": "あいだ, ま",
-            "meaning": "промежуток"
-        },
-        {
-            "character": "今",
-            "onyomi": "コン, キン",
-            "kunyomi": "いま",
-            "meaning": "сейчас"
-        },
-        {
-            "character": "新",
-            "onyomi": "シン",
-            "kunyomi": "あたら.しい, あら.た",
-            "meaning": "новый"
-        },
-        {
-            "character": "古",
-            "onyomi": "コ",
-            "kunyomi": "ふる.い, ふる-",
-            "meaning": "старый"
-        },
-        {
-            "character": "安",
-            "onyomi": "アン",
-            "kunyomi": "やす.い",
-            "meaning": "дешевый, спокойный"
-        },
-        {
-            "character": "社",
-            "onyomi": "シャ",
-            "kunyomi": "やしろ",
-            "meaning": "компания, храм"
-        },
-        {
-            "character": "外",
-            "onyomi": "ガイ, ゲ",
-            "kunyomi": "そと, はず.す",
-            "meaning": "снаружи"
-        },
-        {
-            "character": "国",
-            "onyomi": "コク",
-            "kunyomi": "くに",
-            "meaning": "страна"
-        },
-        {
-            "character": "東",
-            "onyomi": "トウ",
-            "kunyomi": "ひがし",
-            "meaning": "восток"
-        },
-        {
-            "character": "西",
-            "onyomi": "セイ, サイ",
-            "kunyomi": "にし",
-            "meaning": "запад"
-        },
-        {
-            "character": "南",
-            "onyomi": "ナン",
-            "kunyomi": "みなみ",
-            "meaning": "юг"
-        },
-        {
-            "character": "北",
-            "onyomi": "ホク",
-            "kunyomi": "きた",
-            "meaning": "север"
-        },
-        {
-            "character": "入",
-            "onyomi": "ニュウ",
-            "kunyomi": "はい.る, い.れる",
-            "meaning": "входить"
-        },
-        {
-            "character": "出",
-            "onyomi": "シュツ, スイ",
-            "kunyomi": "で.る, だ.す",
-            "meaning": "выходить"
-        },
-        {
-            "character": "立",
-            "onyomi": "リツ, リュウ",
-            "kunyomi": "た.つ, た.てる",
-            "meaning": "стоять"
-        },
-        {
-            "character": "会",
-            "onyomi": "カイ, エ",
-            "kunyomi": "あ.う, あ.わせる",
-            "meaning": "встреча"
-        },
-        {
-            "character": "同",
-            "onyomi": "ドウ",
-            "kunyomi": "おな.じ",
-            "meaning": "одинаковый"
-        },
-        {
-            "character": "自",
-            "onyomi": "ジ, シ",
-            "kunyomi": "みずか.ら",
-            "meaning": "сам"
-        },
-        {
-            "character": "正",
-            "onyomi": "セイ, ショウ",
-            "kunyomi": "ただ.しい, まさ",
-            "meaning": "правильный"
-        },
-        {
-            "character": "円",
-            "onyomi": "エン",
-            "kunyomi": "まる.い",
-            "meaning": "круг, йена"
-        }
-    ]
+    "numbers": {
+        "title": "Числа",
+        "icon": "🔢",
+        "words": [
+            {
+                "kanji": "一",
+                "furigana": "いち",
+                "romaji": "Ichi",
+                "translation": "Один"
+            },
+            {
+                "kanji": "二",
+                "furigana": "に",
+                "romaji": "Ni",
+                "translation": "Два"
+            },
+            {
+                "kanji": "三",
+                "furigana": "さん",
+                "romaji": "San",
+                "translation": "Три"
+            },
+            {
+                "kanji": "四",
+                "furigana": "し / よん",
+                "romaji": "Shi / Yon",
+                "translation": "Четыре"
+            },
+            {
+                "kanji": "五",
+                "furigana": "ご",
+                "romaji": "Go",
+                "translation": "Пять"
+            },
+            {
+                "kanji": "六",
+                "furigana": "ろく",
+                "romaji": "Roku",
+                "translation": "Шесть"
+            },
+            {
+                "kanji": "七",
+                "furigana": "しち / なな",
+                "romaji": "Shichi / Nana",
+                "translation": "Семь"
+            },
+            {
+                "kanji": "八",
+                "furigana": "はち",
+                "romaji": "Hachi",
+                "translation": "Восемь"
+            },
+            {
+                "kanji": "九",
+                "furigana": "きゅう / く",
+                "romaji": "Kyuu / Ku",
+                "translation": "Девять"
+            },
+            {
+                "kanji": "十",
+                "furigana": "じゅう",
+                "romaji": "Juu",
+                "translation": "Десять"
+            }
+        ]
+    },
+    "nature": {
+        "title": "Природа",
+        "icon": "🌿",
+        "words": [
+            {
+                "kanji": "日",
+                "furigana": "ひ",
+                "romaji": "Hi",
+                "translation": "Солнце, день"
+            },
+            {
+                "kanji": "月",
+                "furigana": "つき",
+                "romaji": "Tsuki",
+                "translation": "Луна, месяц"
+            },
+            {
+                "kanji": "火",
+                "furigana": "ひ",
+                "romaji": "Hi",
+                "translation": "Огонь"
+            },
+            {
+                "kanji": "水",
+                "furigana": "みず",
+                "romaji": "Mizu",
+                "translation": "Вода"
+            },
+            {
+                "kanji": "木",
+                "furigana": "き",
+                "romaji": "Ki",
+                "translation": "Дерево"
+            },
+            {
+                "kanji": "金",
+                "furigana": "かね",
+                "romaji": "Kane",
+                "translation": "Золото, металл"
+            },
+            {
+                "kanji": "土",
+                "furigana": "つち",
+                "romaji": "Tsuchi",
+                "translation": "Земля"
+            },
+            {
+                "kanji": "山",
+                "furigana": "やま",
+                "romaji": "Yama",
+                "translation": "Гора"
+            },
+            {
+                "kanji": "川",
+                "furigana": "かわ",
+                "romaji": "Kawa",
+                "translation": "Река"
+            },
+            {
+                "kanji": "田",
+                "furigana": "た",
+                "romaji": "Ta",
+                "translation": "Рисовое поле"
+            }
+        ]
+    },
+    "people": {
+        "title": "Люди",
+        "icon": "👥",
+        "words": [
+            {
+                "kanji": "人",
+                "furigana": "ひと",
+                "romaji": "Hito",
+                "translation": "Человек"
+            },
+            {
+                "kanji": "男",
+                "furigana": "おとこ",
+                "romaji": "Otoko",
+                "translation": "Мужчина"
+            },
+            {
+                "kanji": "女",
+                "furigana": "おんな",
+                "romaji": "Onna",
+                "translation": "Женщина"
+            },
+            {
+                "kanji": "子",
+                "furigana": "こ",
+                "romaji": "Ko",
+                "translation": "Ребенок"
+            },
+            {
+                "kanji": "父",
+                "furigana": "ちち",
+                "romaji": "Chichi",
+                "translation": "Отец"
+            },
+            {
+                "kanji": "母",
+                "furigana": "はは",
+                "romaji": "Haha",
+                "translation": "Мать"
+            },
+            {
+                "kanji": "友",
+                "furigana": "とも",
+                "romaji": "Tomo",
+                "translation": "Друг"
+            }
+        ]
+    },
+    "body": {
+        "title": "Части тела",
+        "icon": "👤",
+        "words": [
+            {
+                "kanji": "口",
+                "furigana": "くち",
+                "romaji": "Kuchi",
+                "translation": "Рот"
+            },
+            {
+                "kanji": "目",
+                "furigana": "め",
+                "romaji": "Me",
+                "translation": "Глаз"
+            },
+            {
+                "kanji": "耳",
+                "furigana": "みみ",
+                "romaji": "Mimi",
+                "translation": "Ухо"
+            },
+            {
+                "kanji": "手",
+                "furigana": "て",
+                "romaji": "Te",
+                "translation": "Рука"
+            },
+            {
+                "kanji": "足",
+                "furigana": "あし",
+                "romaji": "Ashi",
+                "translation": "Нога"
+            }
+        ]
+    },
+    "time": {
+        "title": "Время",
+        "icon": "⏰",
+        "words": [
+            {
+                "kanji": "時",
+                "furigana": "とき",
+                "romaji": "Toki",
+                "translation": "Время"
+            },
+            {
+                "kanji": "間",
+                "furigana": "あいだ",
+                "romaji": "Aida",
+                "translation": "Промежуток"
+            },
+            {
+                "kanji": "毎",
+                "furigana": "まい",
+                "romaji": "Mai",
+                "translation": "Каждый"
+            },
+            {
+                "kanji": "年",
+                "furigana": "とし",
+                "romaji": "Toshi",
+                "translation": "Год"
+            },
+            {
+                "kanji": "午",
+                "furigana": "ご",
+                "romaji": "Go",
+                "translation": "Полдень"
+            },
+            {
+                "kanji": "前",
+                "furigana": "まえ",
+                "romaji": "Mae",
+                "translation": "Перед"
+            },
+            {
+                "kanji": "後",
+                "furigana": "あと",
+                "romaji": "Ato",
+                "translation": "После"
+            },
+            {
+                "kanji": "今",
+                "furigana": "いま",
+                "romaji": "Ima",
+                "translation": "Сейчас"
+            }
+        ]
+    },
+    "directions": {
+        "title": "Направления",
+        "icon": "🧭",
+        "words": [
+            {
+                "kanji": "上",
+                "furigana": "うえ",
+                "romaji": "Ue",
+                "translation": "Верх"
+            },
+            {
+                "kanji": "下",
+                "furigana": "した",
+                "romaji": "Shita",
+                "translation": "Низ"
+            },
+            {
+                "kanji": "左",
+                "furigana": "ひだり",
+                "romaji": "Hidari",
+                "translation": "Лево"
+            },
+            {
+                "kanji": "右",
+                "furigana": "みぎ",
+                "romaji": "Migi",
+                "translation": "Право"
+            },
+            {
+                "kanji": "東",
+                "furigana": "ひがし",
+                "romaji": "Higashi",
+                "translation": "Восток"
+            },
+            {
+                "kanji": "西",
+                "furigana": "にし",
+                "romaji": "Nishi",
+                "translation": "Запад"
+            },
+            {
+                "kanji": "南",
+                "furigana": "みなみ",
+                "romaji": "Minami",
+                "translation": "Юг"
+            },
+            {
+                "kanji": "北",
+                "furigana": "きた",
+                "romaji": "Kita",
+                "translation": "Север"
+            }
+        ]
+    },
+    "actions": {
+        "title": "Действия",
+        "icon": "🏃",
+        "words": [
+            {
+                "kanji": "行",
+                "furigana": "い.く",
+                "romaji": "Iku",
+                "translation": "Идти"
+            },
+            {
+                "kanji": "見",
+                "furigana": "み.る",
+                "romaji": "Miru",
+                "translation": "Видеть"
+            },
+            {
+                "kanji": "聞",
+                "furigana": "き.く",
+                "romaji": "Kiku",
+                "translation": "Слышать"
+            },
+            {
+                "kanji": "読",
+                "furigana": "よ.む",
+                "romaji": "Yomu",
+                "translation": "Читать"
+            },
+            {
+                "kanji": "書",
+                "furigana": "か.く",
+                "romaji": "Kaku",
+                "translation": "Писать"
+            },
+            {
+                "kanji": "食",
+                "furigana": "た.べる",
+                "romaji": "Taberu",
+                "translation": "Есть"
+            },
+            {
+                "kanji": "飲",
+                "furigana": "の.む",
+                "romaji": "Nomu",
+                "translation": "Пить"
+            },
+            {
+                "kanji": "立",
+                "furigana": "た.つ",
+                "romaji": "Tatsu",
+                "translation": "Стоять"
+            },
+            {
+                "kanji": "会",
+                "furigana": "あ.う",
+                "romaji": "Au",
+                "translation": "Встречать"
+            },
+            {
+                "kanji": "休",
+                "furigana": "やす.む",
+                "romaji": "Yasumu",
+                "translation": "Отдыхать"
+            }
+        ]
+    },
+    "objects": {
+        "title": "Объекты",
+        "icon": "📦",
+        "words": [
+            {
+                "kanji": "本",
+                "furigana": "ほん",
+                "romaji": "Hon",
+                "translation": "Книга"
+            },
+            {
+                "kanji": "車",
+                "furigana": "くるま",
+                "romaji": "Kuruma",
+                "translation": "Машина"
+            },
+            {
+                "kanji": "電",
+                "furigana": "でん",
+                "romaji": "Den",
+                "translation": "Электричество"
+            },
+            {
+                "kanji": "字",
+                "furigana": "じ",
+                "romaji": "Ji",
+                "translation": "Символ, иероглиф"
+            },
+            {
+                "kanji": "円",
+                "furigana": "えん",
+                "romaji": "En",
+                "translation": "Йена, круг"
+            }
+        ]
+    },
+    "concepts": {
+        "title": "Концепции",
+        "icon": "💡",
+        "words": [
+            {
+                "kanji": "気",
+                "furigana": "き",
+                "romaji": "Ki",
+                "translation": "Энергия, дух"
+            },
+            {
+                "kanji": "名",
+                "furigana": "な",
+                "romaji": "Na",
+                "translation": "Имя"
+            },
+            {
+                "kanji": "生",
+                "furigana": "い.きる",
+                "romaji": "Ikiru",
+                "translation": "Жизнь"
+            },
+            {
+                "kanji": "先",
+                "furigana": "さき",
+                "romaji": "Saki",
+                "translation": "Прежде, вперед"
+            },
+            {
+                "kanji": "同",
+                "furigana": "おな.じ",
+                "romaji": "Onaji",
+                "translation": "Одинаковый"
+            },
+            {
+                "kanji": "自",
+                "furigana": "みずか.ら",
+                "romaji": "Mizukara",
+                "translation": "Сам"
+            },
+            {
+                "kanji": "正",
+                "furigana": "ただ.しい",
+                "romaji": "Tadashii",
+                "translation": "Правильный"
+            },
+            {
+                "kanji": "新",
+                "furigana": "あたら.しい",
+                "romaji": "Atarashii",
+                "translation": "Новый"
+            },
+            {
+                "kanji": "古",
+                "furigana": "ふる.い",
+                "romaji": "Furui",
+                "translation": "Старый"
+            },
+            {
+                "kanji": "安",
+                "furigana": "やす.い",
+                "romaji": "Yasui",
+                "translation": "Дешевый, спокойный"
+            }
+        ]
+    },
+    "places": {
+        "title": "Места",
+        "icon": "🏠",
+        "words": [
+            {
+                "kanji": "国",
+                "furigana": "くに",
+                "romaji": "Kuni",
+                "translation": "Страна"
+            },
+            {
+                "kanji": "社",
+                "furigana": "やしろ",
+                "romaji": "Yashiro",
+                "translation": "Храм, компания"
+            },
+            {
+                "kanji": "外",
+                "furigana": "そと",
+                "romaji": "Soto",
+                "translation": "Снаружи"
+            },
+            {
+                "kanji": "中",
+                "furigana": "なか",
+                "romaji": "Naka",
+                "translation": "Середина"
+            },
+            {
+                "kanji": "入",
+                "furigana": "はい.る",
+                "romaji": "Hairu",
+                "translation": "Входить"
+            },
+            {
+                "kanji": "出",
+                "furigana": "で.る",
+                "romaji": "Deru",
+                "translation": "Выходить"
+            }
+        ]
+    }
 }
