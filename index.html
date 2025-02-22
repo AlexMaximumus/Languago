@@ -68,7 +68,8 @@
                     <div class="test-icon">📝</div>
                     <h2>Тестирование</h2>
                     <p>Проверьте свои знания японского языка</p>
-                    <button class="nav-button" onclick="startTest()">Начать тест</button>
+                    <!-- Изменено: вызываем loadTest(), чтобы сначала загрузить данные -->
+                    <button class="nav-button" onclick="loadTest()">Начать тест</button>
                 </div>
             </div>
             <div id="test-questions" class="test-container" style="display: none;">
@@ -97,5 +98,36 @@
         </div>
     </div>
     <script src="scripts/main.js"></script>
+    <script>
+    // Функция для возврата к главному меню
+    function showMainMenu() {
+        document.getElementById('main-menu').style.display = 'block';
+        document.getElementById('words-section').style.display = 'none';
+        document.getElementById('kanji-section').style.display = 'none';
+        document.getElementById('test-section').style.display = 'none';
+        document.getElementById('emoji-section').style.display = 'none';
+    }
+
+    // Функция для отображения выбранного раздела
+    function showSection(section) {
+        // Скрываем главное меню и все секции
+        document.getElementById('main-menu').style.display = 'none';
+        document.getElementById('words-section').style.display = 'none';
+        document.getElementById('kanji-section').style.display = 'none';
+        document.getElementById('test-section').style.display = 'none';
+        document.getElementById('emoji-section').style.display = 'none';
+        
+        // Показываем нужную секцию
+        if (section === 'words') {
+            document.getElementById('words-section').style.display = 'block';
+        } else if (section === 'kanji') {
+            document.getElementById('kanji-section').style.display = 'block';
+        } else if (section === 'test') {
+            document.getElementById('test-section').style.display = 'block';
+        } else if (section === 'emoji') {
+            document.getElementById('emoji-section').style.display = 'block';
+        }
+    }
+    </script>
 </body>
 </html>
