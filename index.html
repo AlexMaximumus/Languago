@@ -13,18 +13,44 @@
 </head>
 <body>
     <div class="container">
-        <button class="back-button" onclick="showCategories()">← Назад к категориям</button>
+        <button class="back-button" onclick="showCategories()">← Назад</button>
         
         <div class="header">
             <h1>日本語 Study</h1>
-            <p>Выберите категорию для изучения</p>
+            <p>Выберите режим изучения</p>
         </div>
 
-        <div id="categories-container" class="categories">
+        <div id="main-menu" class="categories">
+            <div class="category-card" onclick="showSection('words')">
+                <div class="category-icon">📚</div>
+                <div class="category-title">Изучение слов</div>
+                <div class="category-description">Японские слова по категориям</div>
+            </div>
+
+            <div class="category-card" onclick="showSection('kanji')">
+                <div class="category-icon">漢</div>
+                <div class="category-title">Изучение кандзи</div>
+                <div class="category-description">Японские иероглифы</div>
+            </div>
+
+            <div class="category-card" onclick="showSection('test')">
+                <div class="category-icon">✍️</div>
+                <div class="category-title">Тестирование</div>
+                <div class="category-description">Проверка знаний</div>
+            </div>
+
+            <div class="category-card" onclick="showSection('emoji')">
+                <div class="category-icon">😊</div>
+                <div class="category-title">Эмодзи</div>
+                <div class="category-description">Изучение эмодзи</div>
+            </div>
+        </div>
+
+        <div id="categories-container" class="categories" style="display: none;">
             <!-- Категории будут добавлены динамически -->
         </div>
 
-        <div id="flashcards-container">
+        <div id="flashcards-container" style="display: none;">
             <!-- Здесь будут карточки -->
         </div>
     </div>
