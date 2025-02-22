@@ -63,6 +63,7 @@ function showSection(section) {
             break;
         case 'kanji': 
             title = 'Изучение кандзи';
+            loadKanji();
             document.getElementById('kanji-section').style.display = 'block';
             break;
         case 'test': 
@@ -370,6 +371,41 @@ function showResults() {
 function restartTest() {
     document.getElementById('test-results').style.display = 'none';
     startTest();
+}
+
+async function loadKanji() {
+    try {
+        const response = await fetch('data/kanji.json');
+        if (!response.ok) {
+            throw new Error(`Ошибка загрузки: ${response.status}`);
+        }
+        const data = await response.json();
+        displayKanji(data.kanji);
+    } catch (error) {
+        console.error('Ошибка:', error);
+        document.getElementById('kanji-section').innerHTML = `
+            <div style="text-align: center; color: var(--tg-theme-hint-color);">
+                <p>Ошибка загрузки данных</p>
+                <button onclick="loadKanji()" class="nav-button">Попробовать снова</button>
+            </div>
+        `;
+    }
+}
+
+function displayKanji(kanjiList) {
+    const container = document.getElementById('kanji-section');
+    container.innerHTML = '';
+    kanjiList.forEach(kanji => {
+        const kanjiCard = document.createElement('div');
+        kanjiCard.className = 'kanji-card';
+        kanjiCard.innerHTML = `
+            <div class="kanji-character">${kanji.character}</div>
+            <div class="kanji-onyomi">音読み: ${kanji.onyomi}</div>
+            <div class="kanji-kunyomi">訓読み: ${kanji.kunyomi}</div>
+            <div class="kanji-meaning">Значение: ${kanji.meaning}</div>
+        `;
+        container.appendChild(kanjiCard);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
