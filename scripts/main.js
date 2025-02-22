@@ -9,15 +9,14 @@ let wordsData = null;
 // Загрузка слов из JSON файла
 async function loadWords() {
     try {
-        const response = await fetch('data/words.json');
+        const response = await fetch('../data/words.json');
         if (!response.ok) {
             throw new Error('Ошибка загрузки слов');
         }
         wordsData = await response.json();
-        updateCategoryCounts();
+        displayCategories(); // Заменяем updateCategoryCounts на displayCategories
     } catch (error) {
         console.error('Ошибка:', error);
-        // Если не удалось загрузить JSON, используем встроенные данные
         wordsData = {
             "nature": {
                 "title": "Природа",
@@ -32,10 +31,31 @@ async function loadWords() {
                 "words": []
             }
         };
-        updateCategoryCounts();
+        displayCategories(); // Здесь тоже
     }
 }
 
+// Новая функция для отображения категорий
+function displayCategories() {
+    const container = document.getElementById('categories-container');
+    container.innerHTML = '';
+    
+    for (const [key, category] of Object.entries(wordsData)) {
+        const categoryCard = document.createElement('div');
+        categoryCard.className = 'category-card';
+        categoryCard.onclick = () => selectCategory(key);
+        
+        categoryCard.innerHTML = `
+            <div class="category-icon">${category.icon || '📚'}</div>
+            <div class="category-title">${category.title}</div>
+            <div class="category-count">${category.words.length} слов</div>
+        `;
+        
+        container.appendChild(categoryCard);
+    }
+}
+
+// Оставляем эту функцию для обратной совместимости
 function updateCategoryCounts() {
     for (const category in wordsData) {
         const count = wordsData[category].words.length;
