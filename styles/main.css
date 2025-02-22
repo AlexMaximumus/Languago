@@ -196,6 +196,19 @@ body {
     transform: rotateY(180deg);
 }
 
+.flashcard .kanji {
+    font-size: 64px;
+    margin-bottom: 10px;
+}
+
+.flashcard .furigana,
+.flashcard .meaning,
+.flashcard .romaji {
+    font-size: 18px;
+    color: var(--tg-theme-hint-color);
+    margin-bottom: 5px;
+}
+
 @media (max-width: 767px) {
     .flashcard {
         height: 250px;
