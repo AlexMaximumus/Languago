@@ -1,112 +1,115 @@
-let testQuestions = null;
-let currentQuestionIndex = 0;
-let correctAnswers = 0;
+let tg = window.Telegram.WebApp;
+tg.expand();
 
-async function loadTest() {
+let currentCategory = null;
+let currentWords = [];
+let currentWordIndex = 0;
+let wordsData = null;
+
+// Загрузка слов из JSON файла
+async function loadWords() {
     try {
-        const response = await fetch('data/test.json');
+        const response = await fetch('data/words.json');
         if (!response.ok) {
-            throw new Error(`Ошибка загрузки: ${response.status}`);
+            throw new Error('Ошибка загрузки слов');
         }
-        const data = await response.json();
-        testQuestions = data.basic.questions;
-        startTest();
+        wordsData = await response.json();
+        updateCategoryCounts();
     } catch (error) {
         console.error('Ошибка:', error);
-        document.getElementById('test-start').innerHTML = `
-            <div style="text-align: center; color: var(--tg-theme-hint-color);">
-                <p>Ошибка загрузки теста</p>
-                <button onclick="loadTest()" class="nav-button">Попробовать снова</button>
-            </div>
-        `;
+        // Если не удалось загрузить JSON, используем встроенные данные
+        wordsData = {
+            "nature": {
+                "title": "Природа",
+                "words": []
+            },
+            "food": {
+                "title": "Еда",
+                "words": []
+            },
+            "communication": {
+                "title": "Общение",
+                "words": []
+            }
+        };
+        updateCategoryCounts();
     }
 }
 
-function startTest() {
-    currentQuestionIndex = 0;
-    correctAnswers = 0;
-    document.getElementById('test-start').style.display = 'none';
-    document.getElementById('test-questions').style.display = 'block';
-    showQuestion();
-}
-
-function showQuestion() {
-    const question = testQuestions[currentQuestionIndex];
-    const container = document.getElementById('test-questions');
-    
-    container.querySelector('.kanji').textContent = question.question;
-    container.querySelector('.furigana').textContent = question.furigana;
-    
-    const optionsContainer = container.querySelector('.options-container');
-    optionsContainer.innerHTML = '';
-    
-    question.options.forEach((option, index) => {
-        const button = document.createElement('button');
-        button.className = 'option-button';
-        button.textContent = option;
-        button.onclick = () => checkAnswer(index, button);
-        optionsContainer.appendChild(button);
-    });
-
-    container.querySelector('.test-progress').textContent = 
-        `Вопрос ${currentQuestionIndex + 1} из ${testQuestions.length}`;
-}
-
-function checkAnswer(selectedIndex, button) {
-    const question = testQuestions[currentQuestionIndex];
-    const buttons = document.querySelectorAll('.option-button');
-    
-    buttons.forEach(btn => btn.disabled = true);
-    
-    if (selectedIndex === question.correct) {
-        button.classList.add('correct');
-        correctAnswers++;
-    } else {
-        button.classList.add('wrong');
-        buttons[question.correct].classList.add('correct');
-    }
-
-    setTimeout(() => {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < testQuestions.length) {
-            showQuestion();
-        } else {
-            showResults();
+function updateCategoryCounts() {
+    for (const category in wordsData) {
+        const count = wordsData[category].words.length;
+        const countElement = document.querySelector(`[onclick="selectCategory('${category}')"] .category-count`);
+        if (countElement) {
+            countElement.textContent = `${count} слов`;
         }
-    }, 1500);
+    }
 }
 
-function showResults() {
-    document.getElementById('test-questions').style.display = 'none';
-    document.getElementById('test-results').style.display = 'block';
+function selectCategory(category) {
+    if (!wordsData) return;
     
-    const percentage = (correctAnswers / testQuestions.length) * 100;
-    let message = '';
-    let icon = '';
-    
-    if (percentage === 100) {
-        message = 'Отлично! Все ответы правильные!';
-        icon = '🎉';
-    } else if (percentage >= 80) {
-        message = 'Очень хороший результат!';
-        icon = '🌟';
-    } else if (percentage >= 60) {
-        message = 'Неплохо, но есть куда расти!';
-        icon = '👍';
-    } else {
-        message = 'Стоит повторить материал';
-        icon = '📚';
-    }
+    currentCategory = category;
+    currentWords = wordsData[category].words;
+    currentWordIndex = 0;
 
-    document.querySelector('.results-icon').textContent = icon;
-    document.querySelector('.score-container').innerHTML = `
-        <p>${message}</p>
-        <p>Правильных ответов: ${correctAnswers} из ${testQuestions.length}</p>
-        <p>Процент успеха: ${percentage}%</p>
+    document.getElementById('categories-container').style.display = 'none';
+    document.getElementById('flashcards-container').style.display = 'block';
+    document.querySelector('.back-button').style.display = 'block';
+    document.querySelector('.header p').textContent = `Категория: ${wordsData[category].title}`;
+    
+    updateFlashcard();
+}
+
+function updateFlashcard() {
+    const container = document.getElementById('flashcards-container');
+    container.innerHTML = `
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="furigana">${currentWords[currentWordIndex].furigana}</div>
+                    <div class="kanji">${currentWords[currentWordIndex].kanji}</div>
+                </div>
+                <div class="card-back">
+                    <div class="romaji">${currentWords[currentWordIndex].romaji}</div>
+                    <div class="translation">${currentWords[currentWordIndex].translation}</div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button class="button" onclick="previousCard()">← Назад</button>
+            <button class="button" onclick="nextCard()">Вперёд →</button>
+        </div>
+        <div class="progress">
+            Карточка ${currentWordIndex + 1} из ${currentWords.length}
+        </div>
     `;
 }
 
-function restartTest() {
-    document.getElementById('test-results').style.display = 'none';
-    startTest();
+function showCategories() {
+    document.getElementById('categories-container').style.display = 'grid';
+    document.getElementById('flashcards-container').style.display = 'none';
+    document.querySelector('.back-button').style.display = 'none';
+    document.querySelector('.header p').textContent = 'Выберите категорию для изучения';
 }
+
+function flipCard(card) {
+    card.classList.toggle('flipped');
+}
+
+function nextCard() {
+    if (!currentWords.length) return;
+    currentWordIndex = (currentWordIndex + 1) % currentWords.length;
+    updateFlashcard();
+}
+
+function previousCard() {
+    if (!currentWords.length) return;
+    currentWordIndex = (currentWordIndex - 1 + currentWords.length) % currentWords.length;
+    updateFlashcard();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    tg.ready();
+    loadWords();
+});
