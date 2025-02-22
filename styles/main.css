@@ -156,12 +156,12 @@ body {
     margin-bottom: 5px;
 }
 
-/* Стили для флэшкарточек (переворот карточки) */
+/* Стили для флэшкарточек с эффектом переворота */
 .flashcard {
     perspective: 1000px;
     position: relative;
     width: 100%;
-    height: 300px; /* Настройте высоту по необходимости */
+    height: 300px; /* Высота для десктопа */
     margin: 20px auto;
 }
 
@@ -201,4 +201,25 @@ body {
     background: var(--tg-theme-secondary-bg-color);
     color: var(--tg-theme-text-color);
     transform: rotateY(180deg);
+}
+
+/* Адаптивные стили для смартфонов */
+@media (max-width: 767px) {
+    .flashcard {
+        height: 250px; /* Немного уменьшаем высоту карточки */
+    }
+    .flashcard-front,
+    .flashcard-back {
+        padding: 15px;
+        font-size: 14px;
+    }
+    .header h1 {
+        font-size: 28px;
+    }
+    .main-menu-item {
+        padding: 20px 15px;
+    }
+    .category-card {
+        padding: 10px;
+    }
 }
