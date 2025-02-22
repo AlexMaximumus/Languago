@@ -1,217 +1,49 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
     <title>日本語 Study</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#4a90e2">
-    <meta name="description" content="Изучение японского языка онлайн">
-    
-    <!-- Шрифты и иконки -->
+    <meta name="theme-color" content="#e74c3c">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
-    
-    <!-- Telegram Web App -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <!-- Улучшенный экран загрузки -->
-    <div id="splash-screen" class="animate__animated animate__fadeIn">
-        <div class="splash-content">
-            <div class="splash-icon animate__animated animate__bounceIn">日本語</div>
-            <div class="splash-title animate__animated animate__fadeInUp">Japanese Study</div>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
-        <nav class="top-nav">
-            <button class="back-button" onclick="showMainMenu()">
-                <span class="back-icon">←</span>
-                <span class="back-text">Назад</span>
-            </button>
-            <div class="nav-title">日本語 Study</div>
-            <button class="settings-button" onclick="toggleSettings()">
-                <span class="settings-icon">⚙️</span>
-            </button>
-        </nav>
-
-        <div class="header animate__animated animate__fadeIn">
+        <button class="back-button" onclick="showCategories()">← Назад к категориям</button>
+        
+        <div class="header">
             <h1>日本語 Study</h1>
-            <p class="subtitle">Изучайте японский язык легко и эффективно</p>
+            <p>Выберите категорию для изучения</p>
         </div>
 
-        <!-- Улучшенное главное меню -->
-        <div id="main-menu" class="main-menu animate__animated animate__fadeIn">
-            <div class="main-menu-item ripple" onclick="showSection('words')">
-                <div class="main-menu-icon">📚</div>
-                <div class="menu-content">
-                    <div class="main-menu-title">Изучение слов</div>
-                    <div class="main-menu-description">Японские слова по категориям</div>
-                </div>
-                <div class="arrow-icon">→</div>
+        <div id="categories-container" class="categories">
+            <div class="category-card" onclick="selectCategory('nature')">
+                <div class="category-icon">🌿</div>
+                <div class="category-title">Природа</div>
+                <div class="category-count">20 слов</div>
             </div>
 
-            <div class="main-menu-item ripple" onclick="showSection('kanji')">
-                <div class="main-menu-icon">漢</div>
-                <div class="menu-content">
-                    <div class="main-menu-title">Изучение кандзи</div>
-                    <div class="main-menu-description">Японские иероглифы</div>
-                </div>
-                <div class="arrow-icon">→</div>
+            <div class="category-card" onclick="selectCategory('food')">
+                <div class="category-icon">🍱</div>
+                <div class="category-title">Еда</div>
+                <div class="category-count">20 слов</div>
             </div>
 
-            <div class="main-menu-item ripple" onclick="showSection('test')">
-                <div class="main-menu-icon">✍️</div>
-                <div class="menu-content">
-                    <div class="main-menu-title">Тестирование</div>
-                    <div class="main-menu-description">Проверка знаний</div>
-                </div>
-                <div class="arrow-icon">→</div>
-            </div>
-
-            <div class="main-menu-item ripple" onclick="showSection('emoji')">
-                <div class="main-menu-icon">😊</div>
-                <div class="menu-content">
-                    <div class="main-menu-title">Смайлики</div>
-                    <div class="main-menu-description">Изучение эмодзи</div>
-                </div>
-                <div class="arrow-icon">→</div>
+            <div class="category-card" onclick="selectCategory('communication')">
+                <div class="category-icon">💬</div>
+                <div class="category-title">Общение</div>
+                <div class="category-count">20 слов</div>
             </div>
         </div>
 
-        <!-- Секции контента -->
-        <div id="words-section" class="content-section" style="display: none;">
-            <div class="section-header">
-                <h2>Изучение слов</h2>
-                <div class="search-bar">
-                    <input type="text" placeholder="Поиск слов..." onkeyup="searchWords(this.value)">
-                </div>
-            </div>
-            <div id="categories-container" class="categories-grid animate__animated animate__fadeIn"></div>
-            <div id="flashcards-container" class="flashcards-container"></div>
-        </div>
-
-        <div id="kanji-section" class="content-section" style="display: none;">
-            <div class="section-header">
-                <h2>Изучение кандзи</h2>
-                <div class="level-selector">
-                    <button class="level-btn active" onclick="filterKanji('n5')">N5</button>
-                    <button class="level-btn" onclick="filterKanji('n4')">N4</button>
-                    <button class="level-btn" onclick="filterKanji('n3')">N3</button>
-                </div>
-            </div>
-            <div class="kanji-grid animate__animated animate__fadeIn"></div>
-        </div>
-
-        <div id="test-section" class="content-section" style="display: none;">
-            <div id="test-start" class="test-container animate__animated animate__fadeIn">
-                <div class="test-intro">
-                    <div class="test-icon pulse">📝</div>
-                    <h2>Тестирование</h2>
-                    <p>Проверьте свои знания японского языка</p>
-                    <div class="test-options">
-                        <select id="test-type" class="test-select">
-                            <option value="kanji">Кандзи</option>
-                            <option value="vocabulary">Словарный запас</option>
-                            <option value="grammar">Грамматика</option>
-                        </select>
-                        <select id="test-difficulty" class="test-select">
-                            <option value="easy">Легкий</option>
-                            <option value="medium">Средний</option>
-                            <option value="hard">Сложный</option>
-                        </select>
-                    </div>
-                    <button class="start-button ripple" onclick="loadTest()">Начать тест</button>
-                </div>
-            </div>
-            <!-- ... остальные секции теста ... -->
-        </div>
-
-        <div id="emoji-section" class="content-section" style="display: none;">
-            <div class="section-header">
-                <h2>Эмодзи</h2>
-                <div class="search-bar">
-                    <input type="text" placeholder="Поиск эмодзи..." onkeyup="searchEmoji(this.value)">
-                </div>
-            </div>
-            <div id="emoji-categories-container" class="categories-grid animate__animated animate__fadeIn"></div>
-            <div id="emoji-flashcards-container" class="flashcards-container"></div>
+        <div id="flashcards-container">
+            <!-- Здесь будут карточки -->
         </div>
     </div>
-
-    <!-- Модальное окно настроек -->
-    <div id="settings-modal" class="modal">
-        <div class="modal-content">
-            <h3>Настройки</h3>
-            <div class="settings-option">
-                <label>Тема</label>
-                <select id="theme-selector" onchange="changeTheme(this.value)">
-                    <option value="light">Светлая</option>
-                    <option value="dark">Тёмная</option>
-                    <option value="auto">Системная</option>
-                </select>
-            </div>
-            <div class="settings-option">
-                <label>Размер шрифта</label>
-                <div class="font-size-controls">
-                    <button onclick="adjustFontSize('-')">A-</button>
-                    <button onclick="adjustFontSize('+')">A+</button>
-                </div>
-            </div>
-            <button class="close-button" onclick="toggleSettings()">Закрыть</button>
-        </div>
-    </div>
-
-    <!-- Скрипты -->
     <script src="scripts/main.js"></script>
-    <script src="scripts/animations.js"></script>
-    <script>
-        // Базовые функции навигации
-        function showMainMenu() {
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.style.display = 'none';
-            });
-            document.getElementById('main-menu').style.display = 'block';
-        }
-
-        function showSection(section) {
-            document.querySelectorAll('.content-section, #main-menu').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.getElementById(`${section}-section`).style.display = 'block';
-        }
-
-        // Настройки
-        function toggleSettings() {
-            const modal = document.getElementById('settings-modal');
-            modal.classList.toggle('show');
-        }
-
-        // Эффект ripple для кнопок
-        document.querySelectorAll('.ripple').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple-effect');
-                this.appendChild(ripple);
-                
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                
-                ripple.style.width = ripple.style.height = `${size}px`;
-                ripple.style.left = `${e.clientX - rect.left - size/2}px`;
-                ripple.style.top = `${e.clientY - rect.top - size/2}px`;
-
-                ripple.addEventListener('animationend', () => {
-                    ripple.remove();
-                });
-            });
-        });
-    </script>
 </body>
 </html>
