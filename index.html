@@ -12,7 +12,6 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <!-- Загрузочный экран -->
     <div id="splash-screen">
         <div class="splash-content">
             <div class="splash-icon">日本語</div>
@@ -31,7 +30,6 @@
             <p>Выберите режим изучения</p>
         </div>
 
-        <!-- Главное меню -->
         <div id="main-menu" class="main-menu">
             <div class="main-menu-item" onclick="showSection('words')">
                 <div class="main-menu-icon">📚</div>
@@ -55,17 +53,16 @@
             </div>
         </div>
 
-        <!-- Разделы -->
-        <div id="words-section">
+        <div id="words-section" style="display: none;">
             <div id="categories-container" class="categories-grid"></div>
             <div id="flashcards-container"></div>
         </div>
 
-        <div id="kanji-section" class="kanji-grid">
+        <div id="kanji-section" class="kanji-grid" style="display: none;">
             <!-- Карточки с кандзи будут добавлены здесь с помощью JavaScript -->
         </div>
 
-        <div id="test-section">
+        <div id="test-section" style="display: none;">
             <div id="test-start" class="test-container">
                 <div class="test-intro">
                     <div class="test-icon">📝</div>
@@ -94,7 +91,7 @@
             </div>
         </div>
 
-        <div id="emoji-section">
+        <div id="emoji-section" style="display: none;">
             <div id="emoji-categories-container" class="categories-grid"></div>
             <div id="emoji-flashcards-container"></div>
         </div>
