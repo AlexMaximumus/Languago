@@ -209,6 +209,58 @@ body {
     margin-bottom: 5px;
 }
 
+/* Стили для раздела тестирования */
+.test-container {
+    background: var(--tg-theme-secondary-bg-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.option-button {
+    background: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.option-button:hover {
+    background: var(--tg-theme-button-hover-color);
+}
+
+.correct {
+    background: #4CAF50; /* Зеленый цвет для правильного ответа */
+}
+
+.wrong {
+    background: #F44336; /* Красный цвет для неправильного ответа */
+}
+
+.test-progress {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--tg-theme-hint-color);
+}
+
+.results-container {
+    text-align: center;
+}
+
+.results-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.score-container {
+    font-size: 18px;
+    color: var(--tg-theme-text-color);
+}
+
 @media (max-width: 767px) {
     .flashcard {
         height: 250px;
