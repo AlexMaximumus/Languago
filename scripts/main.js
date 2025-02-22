@@ -13,16 +13,16 @@ async function loadWords(type) {
         let response;
         switch(type) {
             case 'words':
-                response = await fetch('/Language/data/words.json');
+                response = await fetch('/Language/words.json');
                 break;
             case 'kanji':
-                response = await fetch('/Language/data/kanji.json');
+                response = await fetch('/Language/kanji.json');
                 break;
             case 'emoji':
-                response = await fetch('/Language/data/emoji.json');
+                response = await fetch('/Language/emoji.json');
                 break;
             case 'test':
-                response = await fetch('/Language/data/test.json');
+                response = await fetch('/Language/test.json');
                 break;
             default:
                 throw new Error('Неизвестный тип данных');
