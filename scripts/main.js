@@ -84,7 +84,7 @@
 
         async function loadCategories() {
             try {
-                const response = await fetch('/Languago/words.json');
+                   const response = await fetch('data/words.json');
                 if (!response.ok) {
                     throw new Error(`Ошибка загрузки: ${response.status}`);
                 }
