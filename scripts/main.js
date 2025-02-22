@@ -9,7 +9,7 @@ let wordsData = null;
 // Загрузка слов из JSON файла
 async function loadWords() {
     try {
-        const response = await fetch('/Language/data/words.json');  // Изменен путь для GitHub Pages
+        const response = await fetch('data/words.json');  // Изменен путь для GitHub Pages
         if (!response.ok) {
             throw new Error('Ошибка загрузки слов');
         }
