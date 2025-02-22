@@ -1,4 +1,3 @@
-/* Основные стили */
 body {
     font-family: 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
     margin: 0;
@@ -13,7 +12,6 @@ body {
     padding: 15px;
 }
 
-/* Стили главного меню */
 .main-menu {
     display: grid;
     grid-template-columns: 1fr;
@@ -62,7 +60,6 @@ body {
     font-size: 14px;
 }
 
-/* Стили для сетки категорий */
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -105,7 +102,6 @@ body {
     font-size: 12px;
 }
 
-/* Кнопка "Назад" */
 .back-button {
     background: none;
     border: none;
@@ -116,7 +112,6 @@ body {
     display: none;
 }
 
-/* Заголовок */
 .header {
     text-align: center;
     margin-bottom: 25px;
@@ -127,7 +122,6 @@ body {
     margin: 20px 0;
 }
 
-/* Стили карточек для кандзи */
 .kanji-card {
     background: var(--tg-theme-secondary-bg-color);
     border-radius: 12px;
@@ -156,12 +150,11 @@ body {
     margin-bottom: 5px;
 }
 
-/* Стили для флэшкарточек с эффектом переворота */
 .flashcard {
     perspective: 1000px;
     position: relative;
     width: 100%;
-    height: 300px; /* Высота для десктопа */
+    height: 300px;
     margin: 20px auto;
 }
 
@@ -203,10 +196,9 @@ body {
     transform: rotateY(180deg);
 }
 
-/* Адаптивные стили для смартфонов */
 @media (max-width: 767px) {
     .flashcard {
-        height: 250px; /* Немного уменьшаем высоту карточки */
+        height: 250px;
     }
     .flashcard-front,
     .flashcard-back {
