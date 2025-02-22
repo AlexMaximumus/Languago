@@ -5,11 +5,11 @@ let currentCategory = null;
 let currentWords = [];
 let currentWordIndex = 0;
 let wordsData = null;
-let currentSection = 'main-menu'; // Добавляем отслеживание текущего раздела
+let currentSection = 'main-menu';
 
-// Загрузка слов из JSON файла
 async function loadWords(type) {
     try {
+        console.log(`Загрузка файла для режима: ${type}`);
         let response;
         switch(type) {
             case 'words':
@@ -29,9 +29,11 @@ async function loadWords(type) {
         }
 
         if (!response.ok) {
-            throw new Error('Ошибка загрузки данных');
+            throw new Error(`Ошибка загрузки данных: ${response.status}`);
         }
-        wordsData = await response.json();
+        const data = await response.json();
+        console.log(`Данные загружены успешно:`, data);
+        wordsData = data;
         displayCategories();
     } catch (error) {
         console.error('Ошибка:', error);
@@ -116,12 +118,14 @@ function selectCategory(category) {
 
 function updateFlashcard() {
     const container = document.getElementById('flashcards-container');
+    const symbol = currentWords[currentWordIndex].kanji || currentWords[currentWordIndex].emoji;
+    
     container.innerHTML = `
         <div class="card" onclick="flipCard(this)">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="furigana">${currentWords[currentWordIndex].furigana}</div>
-                    <div class="kanji">${currentWords[currentWordIndex].kanji}</div>
+                    <div class="kanji">${symbol}</div>
                 </div>
                 <div class="card-back">
                     <div class="romaji">${currentWords[currentWordIndex].romaji}</div>
@@ -171,5 +175,5 @@ function previousCard() {
 
 document.addEventListener('DOMContentLoaded', function() {
     tg.ready();
-    showMainMenu(); // Показываем главное меню при загрузке
+    showMainMenu();
 });
