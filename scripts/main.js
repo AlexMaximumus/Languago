@@ -33,8 +33,7 @@ async function loadWords(type) {
         }
         const data = await response.json();
         console.log(`Данные загружены успешно:`, data);
-        // Если это words.json, берём данные напрямую
-        wordsData = type === 'words' ? data : data.categories || data;
+        wordsData = data;
         displayCategories();
     } catch (error) {
         console.error('Ошибка:', error);
@@ -119,60 +118,29 @@ function selectCategory(category) {
 
 function updateFlashcard() {
     const container = document.getElementById('flashcards-container');
+    const symbol = currentWords[currentWordIndex].kanji || currentWords[currentWordIndex].emoji;
     
-    if (currentSection === 'test') {
-        // Для тестового режима
-        const question = currentWords[currentWordIndex];
-        container.innerHTML = `
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <div class="kanji">${question.kanji}</div>
-                        <div class="question">${question.question}</div>
-                        <div class="options">
-                            ${question.options.map((option, index) => `
-                                <button class="option-button" onclick="checkAnswer(${index})">${option}</button>
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <div class="explanation">${question.explanation}</div>
-                    </div>
+    container.innerHTML = `
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="furigana">${currentWords[currentWordIndex].furigana}</div>
+                    <div class="kanji">${symbol}</div>
+                </div>
+                <div class="card-back">
+                    <div class="romaji">${currentWords[currentWordIndex].romaji}</div>
+                    <div class="translation">${currentWords[currentWordIndex].translation}</div>
                 </div>
             </div>
-            <div class="controls">
-                <button class="button" onclick="previousCard()">← Назад</button>
-                <button class="button" onclick="nextCard()">Вперёд →</button>
-            </div>
-            <div class="progress">
-                Вопрос ${currentWordIndex + 1} из ${currentWords.length}
-            </div>
-        `;
-    } else {
-        // Для режима изучения
-        const symbol = currentWords[currentWordIndex].kanji || currentWords[currentWordIndex].emoji;
-        container.innerHTML = `
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <div class="furigana">${currentWords[currentWordIndex].furigana}</div>
-                        <div class="kanji">${symbol}</div>
-                    </div>
-                    <div class="card-back">
-                        <div class="romaji">${currentWords[currentWordIndex].romaji}</div>
-                        <div class="translation">${currentWords[currentWordIndex].translation}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="controls">
-                <button class="button" onclick="previousCard()">← Назад</button>
-                <button class="button" onclick="nextCard()">Вперёд →</button>
-            </div>
-            <div class="progress">
-                Карточка ${currentWordIndex + 1} из ${currentWords.length}
-            </div>
-        `;
-    }
+        </div>
+        <div class="controls">
+            <button class="button" onclick="previousCard()">← Назад</button>
+            <button class="button" onclick="nextCard()">Вперёд →</button>
+        </div>
+        <div class="progress">
+            Карточка ${currentWordIndex + 1} из ${currentWords.length}
+        </div>
+    `;
 }
 
 function showCategories() {
@@ -203,26 +171,6 @@ function previousCard() {
     if (!currentWords.length) return;
     currentWordIndex = (currentWordIndex - 1 + currentWords.length) % currentWords.length;
     updateFlashcard();
-}
-
-function checkAnswer(selectedIndex) {
-    const question = currentWords[currentWordIndex];
-    const selectedAnswer = question.options[selectedIndex];
-    const isCorrect = selectedAnswer === question.correct;
-    
-    const optionButtons = document.querySelectorAll('.option-button');
-    optionButtons.forEach(button => {
-        button.disabled = true;
-        if (button.textContent === question.correct) {
-            button.classList.add('correct');
-        } else if (button.textContent === selectedAnswer && !isCorrect) {
-            button.classList.add('incorrect');
-        }
-    });
-
-    // Показываем объяснение
-    const card = document.querySelector('.card');
-    card.classList.add('flipped');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
