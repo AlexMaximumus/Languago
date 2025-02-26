@@ -7,9 +7,27 @@ let currentWordIndex = 0;
 let wordsData = null;
 let currentSection = 'main-menu';
 
-async function loadWordsFromAPI(category) {
+async function loadWords(type) {
     try {
-        const response = await fetch(`https://Alekma.pythonanywhere.com/api/words/${category}`);
+        console.log(`Загрузка файла для режима: ${type}`);
+        let response;
+        switch(type) {
+            case 'words':
+                response = await fetch('data/words.json');
+                break;
+            case 'kanji':
+                response = await fetch('data/kanji.json');
+                break;
+            case 'emoji':
+                response = await fetch('data/emoji.json');
+                break;
+            case 'test':
+                response = await fetch('data/test.json');
+                break;
+            default:
+                throw new Error('Неизвестный тип данных');
+        }
+
         if (!response.ok) {
             throw new Error(`Ошибка загрузки данных: ${response.status}`);
         }
@@ -26,6 +44,21 @@ async function loadWordsFromAPI(category) {
             }
         };
         displayCategories();
+    }
+}
+
+async function loadWordsFromAPI(category) {
+    try {
+        const response = await fetch(`/api/words/${category}`);
+        if (!response.ok) {
+            throw new Error(`Ошибка загрузки данных: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log(`Данные загружены успешно:`, data);
+        wordsData = data;
+        displayCategories();
+    } catch (error) {
+        console.error('Ошибка:', error);
     }
 }
 
@@ -47,19 +80,19 @@ function showSection(section) {
     switch(section) {
         case 'words':
             document.querySelector('.header p').textContent = 'Изучение слов';
-            loadWordsFromAPI('Приветствия и вежливые выражения'); // Пример категории
+            loadWords('words');
             break;
         case 'kanji':
             document.querySelector('.header p').textContent = 'Изучение кандзи';
-            loadWordsFromAPI('kanji');
+            loadWords('kanji');
             break;
         case 'emoji':
             document.querySelector('.header p').textContent = 'Изучение эмодзи';
-            loadWordsFromAPI('emoji');
+            loadWords('emoji');
             break;
         case 'test':
             document.querySelector('.header p').textContent = 'Тестирование';
-            loadWordsFromAPI('test');
+            loadWords('test');
             break;
     }
 }
