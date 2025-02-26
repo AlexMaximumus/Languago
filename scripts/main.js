@@ -47,21 +47,6 @@ async function loadWords(type) {
     }
 }
 
-async function loadWordsFromAPI(category) {
-    try {
-        const response = await fetch(`/api/words/${category}`);
-        if (!response.ok) {
-            throw new Error(`Ошибка загрузки данных: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log(`Данные загружены успешно:`, data);
-        wordsData = data;
-        displayCategories();
-    } catch (error) {
-        console.error('Ошибка:', error);
-    }
-}
-
 function showMainMenu() {
     currentSection = 'main-menu';
     document.getElementById('main-menu').style.display = 'grid';
